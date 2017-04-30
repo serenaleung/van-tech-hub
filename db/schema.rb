@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20170430023156) do
     t.datetime "updated_at",                      null: false
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "org_approved",    default: false
+    t.boolean  "org_approved"
     t.index ["organization_id"], name: "index_users_on_organization_id", using: :btree
   end
 

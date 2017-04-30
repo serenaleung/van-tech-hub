@@ -5,18 +5,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    if user_params['password_digest'] == user_params['password_confirmation']
-      test = user_params
-      test.delete('password_confirmation')
-      @user = User.new(test)
+
+      @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
         redirect_to organizations_path, notice: 'Thank you for signing up'
-      else
-        render :new
-      end
     else
-      redirect_to new_user_path, alert: 'passwords must match!'
+      flash[:alert] = "#{@user.errors.full_messages.join(' ')}"
+      redirect_to new_user_path
     end
   end
 
@@ -26,7 +22,7 @@ class UsersController < ApplicationController
     params.require(:user).permit([:first_name,
                                   :last_name,
                                   :email,
-                                  :password_digest,
+                                  :password,
                                   :password_confirmation])
   end
 

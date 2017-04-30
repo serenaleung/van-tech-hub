@@ -1,6 +1,6 @@
 <h1>Organization Show Page</h1>
 
-
+<h2>REAL PAGE</h2>
 
 <h2><%= @organization.name %></h2>
 <p>Number of Employee: <%= @organization.employee %></p>
@@ -11,3 +11,4 @@
 <p>Twitter: <%= @organization.twitter %></p>
 <p>Created On: <%= @organization.created_at %></p>
 <p>Technology: <%= @organization.adapted_technologies.pluck(:language).join(', ') %>.</p>
+<p><%= link_to "Claim this business", organization_path(@organization), method: :patch %></p>

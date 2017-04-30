@@ -1,8 +1,5 @@
 class Admin::ClaimsController < ApplicationController
 
-
-
-
 def update
 @user = User.find params[:id]
 

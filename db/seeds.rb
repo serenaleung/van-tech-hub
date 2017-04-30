@@ -30,10 +30,10 @@ end
   User.create(first_name: Faker::Name.first_name,
               last_name: Faker::Name.last_name,
               email: Faker::Internet.email,
-              password_digest: '1234567',
+              password: '1234567',
               organization_id: organization.id,
               is_admin: false,
-              org_approved: false
+
   )
   puts "User created!"
 end

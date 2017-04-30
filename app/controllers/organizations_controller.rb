@@ -22,6 +22,17 @@
       end
     end
 
+
+    def update
+      @organization = Organization.find params[:id]
+      @user = current_user
+      @user.update({organization_id: params[:id], org_approved: false})
+
+
+      redirect_to admin_index_path, notice: 'Pending'
+
+    end
+
       private
 
         def find_organization
