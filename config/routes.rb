@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :events, only: [:index, :create, :destroy]
+    resources :news, only: [:index, :create, :destroy]
   end
   
   resources :events, only: [:index]
+  root 'welcome#index'
   
 end
