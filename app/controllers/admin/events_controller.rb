@@ -29,7 +29,7 @@ class Admin::EventsController < ApplicationController
             Event.create({
                 name: meetup.name, 
                 urlname: meetup.group['urlname'].downcase,
-                start_time: Time.at(meetup.time), 
+                start_time: Time.at(meetup.time/1000-28800), #1000 = ms -> s, 28800 -> -8 hours for PST  
                 desc: meetup.description
             })
         end
