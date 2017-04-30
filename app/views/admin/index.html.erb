@@ -1,0 +1,42 @@
+<h2>Admin panel</h2>
+<h3>Pending Claim Request</h3>
+<% @users.each do |user| %>
+<% if user.organization_id != nil && user.org_approved == false %>
+<span><strong> First name: </strong>
+  <%= user.first_name %></span><br />
+<span><strong> Last name: </strong>
+  <%= user.last_name %></span><br />
+<span><strong> Email: </strong>
+  <%= user.email%></span><br />
+  <span><strong> Org: </strong>
+    <%= Organization.find(user.organization_id).name%>
+</span><br />
+    <%= link_to "Accpet", admin_claim_path(user), method: :patch %>
+    <%= link_to "Reject", admin_claim_path(user), method: :delete%>
+    <hr>
+      <% end %>
+<% end %>
+
+<br>
+
+<h3>Users</h3>
+<% @users.each do |user| %>
+<span><strong> First name: </strong>
+  <%= user.first_name %></span><br />
+<span><strong> Last name: </strong>
+  <%= user.last_name %></span><br />
+<span><strong> Email: </strong>
+  <%= user.email%></span><br />
+  <span><strong> Org: </strong>
+    <% if user.organization_id %>
+    <%=   Organization.find(user.organization_id).name%>
+      <% end %>
+      <br>
+      <%= link_to "Edit", edit_admin_adminuser_path(user)%>
+      <%= link_to "Delete", admin_adminuser_path(user), method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+  </span><br />
+  <hr>
+
+
+<% end %>

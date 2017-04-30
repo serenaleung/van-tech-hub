@@ -1,0 +1,13 @@
+<h1>Organization Show Page</h1>
+
+
+
+<h2><%= @organization.name %></h2>
+<p>Number of Employee: <%= @organization.employee %></p>
+<p>Manager: <%= @organization.manager %></p>
+<p>Address: <%= @organization.street %>,<%= @organization.city %>,<%= @organization.province %>,<%= @organization.postal_code %> </p>
+<p>Overview: <%= @organization.overview %></p>
+<p>URL: <%= @organization.website %></p>
+<p>Twitter: <%= @organization.twitter %></p>
+<p>Created On: <%= @organization.created_at %></p>
+<p>Technology: <%= @organization.adapted_technologies.pluck(:language).join(', ') %>.</p>
