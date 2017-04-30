@@ -20,6 +20,22 @@ ActiveRecord::Schema.define(version: 20170429222805) do
     t.integer  "employee"
     t.string   "manager"
     t.boolean  "is_publish",  default: false
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.string   "urlname"
+    t.datetime "start_time"
+    t.text     "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meetup_groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
     t.string   "city"
     t.string   "street"
     t.string   "province"
@@ -27,8 +43,14 @@ ActiveRecord::Schema.define(version: 20170429222805) do
     t.text     "overview"
     t.string   "website"
     t.string   "twitter"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "search_terms", force: :cascade do |t|
+    t.string   "search_term"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "technologies", force: :cascade do |t|
