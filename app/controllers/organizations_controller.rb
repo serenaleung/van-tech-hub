@@ -26,6 +26,7 @@
       @organization = Organization.find params[:id]
       @user = current_user
     end
+    
     def confirm
       @organization = Organization.find params[:id]
       @user = current_user
