@@ -1,3 +1,73 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  background-color: #FEA680;
+}
+
+.section1 {
+  background-color: #FEA680;
+  margin: 0px;
+  height: 60vh;
+}
+
+.section2 {
+ border-radius: 50%/20% 20% 0% 0%;
+ color: white;
+ text-align: center;
+ text-indent: .1em;
+ height: 140vh;
+ z-index: 4;
+ box-shadow: 0px 0px 20px rgba(0,0,0,0.19), 0 0px 6px rgba(0,0,0,0.23);
+ background-color: #01ABAA;
+ margin: 0px;
+}
+
+.section3 {
+  background-color: grey;
+  margin: 0px;
+  height: 100vh;
+  top: 0;
+  z-index: -1;
+}
+
+.searchbox {
+  float: right;
+  background-color: #01ABAA;
+  width: 40%;
+  height: 8%;
+  z-index: 1;
+  position:absolute;
+  right: 0;
+  margin-top:0px;
+  border-radius: 0px 0px 0px 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.map {
+  z-index: -1;
+  top: 0px;
+}
+
+.overlay {
+   background:transparent;
+   position:absolute;
+   height: 100%;
+   width: 100%;
+   z-index: 1;
+}
+
+.section4 {
+  background-color: #FEDC3D;
+  margin: 0px;
+  height: 100vh;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.19), 0 0px 6px rgba(0,0,0,0.23);
+  z-index: 4;
+}
+
+.section5 {
+  background-color: #FEA680;
+  margin: 0px;
+  height: 100vh;
+}
