@@ -1,0 +1,19 @@
+<h1>Admin > Events</h1>
+
+<div id="add-event">
+    <%= form_for 'admin_events_path' do |f| %>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <%= f.submit 'Add Meetup' %>
+    <% end %>
+</div>
+
+<div id="list-events">
+    <% @meetups.each do |meetup| %>
+      <p><%= meetup.name %></p>
+      <p><%= link_to 'Destroy', admin_event_path(meetup.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <hr>
+    <% end %>
+</div>
