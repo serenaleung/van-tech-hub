@@ -20,7 +20,6 @@ class Admin::NewsController < ApplicationController
 
   def add_to_news_table(search_term)
     url = "https://www.googleapis.com/customsearch/v1?key=#{ENV["GCSE_KEY"]}&#{ENV["GCSE_CX"]}&q=#{search_term}"
-    puts url
     search = HTTParty.get(url)
     searchbody = JSON.parse(search.body)
 
