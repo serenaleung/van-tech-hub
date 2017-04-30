@@ -6,6 +6,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
@@ -18,5 +28,21 @@
 
   <body>
     <%= yield %>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+
+    <!-- FOOTER -->
+    <nav class="bottom-nav">
+      <div class="nav-wrapper">
+        <div class="foot-right"><span class="foot-quote">Built and maintained by students of CodeCore<span><a href="#" class="brand-logo right"><%= image_tag "codecore.png", class: "logo-img" %></a></div>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="sass.html">Login</a></li>
+          <li><a href="badges.html">Sign up</a></li>
+          <li><a href="collapsible.html">Explore</a></li>
+        </ul>
+      </div>
+    </nav>
   </body>
 </html>
