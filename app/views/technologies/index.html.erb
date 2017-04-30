@@ -1,5 +1,33 @@
+<center>
 <h1>Technology</h1>
-<% @technologies.each do |technology| %>
-  <h3><%= technology.language%></h3>
-  <hr>
+<hr>
+
+<%= @technology.errors.full_messages.join(', ') %>
+<%= form_for @technology do |f| %>
+
+    <%= f.label :Language %>
+    <br>
+    <%= f.text_field :language %>
+    <br>
+  <%= f.submit %>
 <% end %>
+
+<hr>
+
+<table>
+  <tr>
+    <th>Name:</th>
+    <th>❌</th>
+  </tr>
+
+
+<% @technologies.each do |technology| %>
+<tr>
+  <td><h3><%= technology.language%></h3></td>
+  <td><%= link_to 'Delete', technology_path(id: technology.id), method: :delete, data: { confirm: 'Are you sure?🤔' }  %></td>
+</tr>
+<% end %>
+
+
+</table>
+</center>

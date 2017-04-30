@@ -1,1 +1,9 @@
-<h1>coNF</h1>
+<h1>Confirmation</h1>
+<h1>Hello
+<%= @user.first_name %></h1>
+<h2>You are about to submist a request to claim the company <%= @organization.name %></h2>
+
+
+<%= link_to "Yes Submit Request", organization_path(@organization, @user), method: :patch%>
+
+<%= link_to "No (Go back to diretory)" %>

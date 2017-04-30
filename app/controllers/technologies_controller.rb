@@ -1,8 +1,8 @@
 class TechnologiesController < ApplicationController
   def index
-   @technologies = Technology.all
+   @technologies = Technology.order(:language)
+   @technology = Technology.new
   end
-
   def new
    @technology = Technology.new
   end
@@ -15,6 +15,12 @@ class TechnologiesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+  @technology = Technology.find params[:id]
+  @technology.destroy
+  redirect_to technologies_path
   end
 
 
