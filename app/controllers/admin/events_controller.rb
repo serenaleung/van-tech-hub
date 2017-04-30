@@ -8,7 +8,7 @@ class Admin::EventsController < ApplicationController
         meetup_params = params.require(:admin_events_path).permit([:name])
         @meetup = MeetupGroup.new meetup_params
         @meetup.save
-        update_events_table(@meetup.name)
+        add_to_events_table(@meetup.name)
         redirect_to admin_events_path
         @event = Event.new
     end
@@ -16,22 +16,29 @@ class Admin::EventsController < ApplicationController
     def destroy
         @meetup = MeetupGroup.find(params[:id])
         @meetup.destroy
-        @event = Event.find(params[:id]) #this could break easily if IDs get mismatched, should be referenced or something
-        @event.destroy
+        remove_from_events_table(@meetup.name)
+        
         redirect_to admin_events_path
     end
     
     private
     
-    def update_events_table(new_meetup)
+    def add_to_events_table(new_meetup)
         meetups = MeetupClientRails::Events.all(new_meetup, { page: 20 })
         meetups.each do |meetup|
             Event.create({
                 name: meetup.name, 
+                urlname: meetup.group['urlname'].downcase,
                 start_time: Time.at(meetup.time), 
                 desc: meetup.description
             })
         end
+    end
+    
+    def remove_from_events_table(meetup_name)
+        meetup_name.downcase!
+        @events = Event.where(urlname: meetup_name)
+        @events.destroy_all
     end
 
 end
