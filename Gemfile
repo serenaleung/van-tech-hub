@@ -37,7 +37,8 @@ gem 'faker', github: 'stympy/faker'
 gem 'meetup_client_rails'
 gem 'simple_calendar'
 
-gem 'cognitivebing'
+gem 'httparty'
+gem 'xml-to-json'
 
 gem 'crunchbase-ruby-library'
 
