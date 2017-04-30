@@ -39,6 +39,7 @@ gem 'simple_calendar'
 
 gem 'cognitivebing'
 
+gem 'crunchbase-ruby-library'
 
 
 # Use Capistrano for deployment

@@ -13,5 +13,6 @@
 !/log/.keep
 !/tmp/.keep
 /config/initializers/meetup_client_rails
+/config/initializers/crunchbase
 # Ignore Byebug command history file.
 .byebug_history
