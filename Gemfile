@@ -34,6 +34,7 @@ gem 'devise'
 gem 'cowsay', '~> 0.3.0'
 gem 'faker', github: 'stympy/faker'
 gem 'meetup_client_rails'
+gem 'simple_calendar'
 
 
 # Use Capistrano for deployment

@@ -1,5 +1,19 @@
 <h1>Events Page</h1>
 
+<%= month_calendar(attribute: :starts_at) do |date| %>
+  <%= date %>
+<% end %>
+
+<%= month_calendar events: @events do |date, events| %>
+  <%= date %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.name %>
+    </div>
+  <% end %>
+<% end %>
+
 <div id="event-list">
     <% if @events %>
         <% @events.each do |event| %>
