@@ -1,1 +1,8 @@
-<h1>Directory Page</h1>
+<h1>DIRECTORY</h1>
+
+<% if @organizations %>
+    <% @organizations.each do |organization| %>
+      <p><%= organization.name %></p>
+      <hr>
+    <% end %>
+<% end %>

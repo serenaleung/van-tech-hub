@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/config/initializers/api.rb
 
 /config/initializers/meetup_client_rails
 /config/initializers/crunchbase
