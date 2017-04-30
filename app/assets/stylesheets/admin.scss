@@ -13,3 +13,141 @@ $usersBg: #8FB449;
 $usersText: #EAF25D;
 $techBg: #724499;
 $techText: #95DBE0;
+
+// $usersBg: #FF9F9F;
+// $usersText: #761F72;
+// $orgBg: #8FB449;
+// $orgText: #EAF25D;
+
+.l400 {
+   font-family: 'Lato', sans-serif;
+   font-weight: 400;
+   font-style: normal;
+}
+
+.l900 {
+   font-family: 'Lato', sans-serif;
+   font-weight: 900;
+   font-style: normal;
+}
+
+.admin {
+  background-color: $background;
+  // z-index: 0;
+  // position: relative;
+}
+
+.bob {
+	width: 70%;
+	height: 90%;
+	background: red;
+}
+
+.tab:first-child {
+    margin-left: 0.55em !important;
+    color: $orgText;
+    background-color: $orgBg;
+}
+.tab:nth-child(2) {
+    color: $eventText;
+    background-color: $eventBg;
+}
+.tab:nth-child(3) {
+    color: $newsText;
+    background-color: $newsBg;
+}
+.tab:nth-child(4) {
+    color: $usersText;
+    background-color: $usersBg;
+}
+.tab:nth-child(5) {
+    color: $techText;
+    background-color: $techBg;
+}
+.tab:nth-child(6) {
+    color: $techText;
+    background-color: rgba($techBg, 0);
+}
+
+.tab{
+  margin-top: 8vh;
+  padding: 0.4em 0.6em 1.8em 1em !important;
+  width: 15%;
+	background: white;
+  border-radius: 0.6em 0.6em 0 0 ;
+  z-index: 0;
+  position: relative;
+}
+
+.pageTitle {
+  color: white;
+  z-index: 4;
+  position: relative;
+  padding: 0em;
+  margin: -0.1em;
+}
+
+td, th{
+  padding: 1.2em 3em 0.7em !important;
+  font-size: 16.5px;
+}
+
+thead {
+  border-bottom: 1px solid $newsBg !important;
+}
+
+#rectangle {
+  margin-top: -1.9em;
+	width: 70vw;
+	height:80vh;
+  border-radius: 1em;
+  z-index: 1em;
+  top: -1em;
+  position: relative;
+  background-color: $orgBg;
+}
+
+.userBoxes {
+  margin: 0 auto;
+  // padding-left: 4vw;
+}
+
+.col.s2 {
+    width: 16% !important;
+  }
+
+.h5class {
+  padding: 0.8em 0 .5em 3em !important;
+}
+
+.pendingTable {
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 5px $newsBg;
+  width: 50%;
+  // border: 7px solid $newsBg;
+  background-color: #FFFDD7;
+  padding: 3em;
+  // margin: 1em;
+  width: 90%;
+  position: relative;
+  z-index: 0;
+  margin: 0 auto;
+}
+
+.pendingTable:hover {
+  // border-radius: 1em;
+  box-shadow: inset 0 0 0 5px $newsBg !important;
+  z-index: 3;
+  position: relative;
+}
+
+
+tr:hover {
+    background-color: rgba($newsBg, 0.2) !important;
+
+}
+
+table tbody tr:last-child {
+  padding-bottom: 3em !important;
+}
