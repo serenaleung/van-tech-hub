@@ -1,5 +1,6 @@
 class Admin::ClaimsController < ApplicationController
 
+
 def update
 @user = User.find params[:id]
 
@@ -10,7 +11,7 @@ end
 def destroy
   @user = User.find params[:id]
 
-  @user.update({organization_id: nil})
+  @user.update({organization_id: nil, org_approved: nil})
   redirect_to admin_index_path, alert: 'Rejected!'
   end
 

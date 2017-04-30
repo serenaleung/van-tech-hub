@@ -10,6 +10,6 @@ It shows that you have claimed <%=Organization.find(@user.organization_id).name 
 <% end %>
 
 
-<%= link_to "Yes Submit Request", organization_path(@organization, @user), method: :patch%>
+<%= link_to "Yes Submit Request", organizations_confirm_path(@organization, @user), method: :post%>
 
 <%= link_to "No (Go back to diretory)" %>

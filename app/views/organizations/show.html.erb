@@ -11,4 +11,4 @@
 <p>Twitter: <%= @organization.twitter %></p>
 <p>Created On: <%= @organization.created_at %></p>
 <p>Technology: <%= @organization.adapted_technologies.pluck(:language).join(', ') %>.</p>
-<p><%= link_to "Claim this business", edit_organization_path(@organization) %></p>
+<p><%= link_to "Claim this business", organizations_confirm_path(@organization)  %></p>

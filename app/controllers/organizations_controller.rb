@@ -26,12 +26,21 @@
       @organization = Organization.find params[:id]
       @user = current_user
     end
+    def confirm
+      @organization = Organization.find params[:id]
+      @user = current_user
 
-    def update
+    end
+
+    def update_confirm
       @organization = Organization.find params[:id]
       @user = current_user
       @user.update({organization_id: params[:id], org_approved: false})
       redirect_to organization_path(@organization), notice: 'Thanks for claming. We will get back to you soon!'
+    end
+
+
+    def update
 
       # redirect_to admin_index_path, notice: 'Pending'
 
