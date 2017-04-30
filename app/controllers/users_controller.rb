@@ -11,19 +11,36 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to organizations_path, notice: 'Thank you for signing up'
     else
-      flash[:alert] = "#{@user.errors.full_messages.join(' ')}"
-      redirect_to new_user_path
+      redirect_to new_user_path, alert: 'passwords must match!'
     end
   end
+
+  def edit
+  @user = User.find params[:id]
+
+  end
+
+  def update
+  @user = User.find params[:id]
+  user_params = params.require(:user).permit([:first_name, :last_name, :email, :password, :is_admin, :organization_id, :org_approved ])
+  @user.update(user_params)
+  redirect_to admin_index_path, notice: 'User updated!'
+
+  end
+
+  def destroy
+    @user = User.find params[:id]
+    @user.destroy
+    redirect_to admin_index_path, notice: 'User deleted!'
+
+
+  end
+
 
   private
 
   def user_params
-    params.require(:user).permit([:first_name,
-                                  :last_name,
-                                  :email,
-                                  :password,
-                                  :password_confirmation])
+    params.require(:user).permit( [:first_name, :last_name, :email, :password, :password_confirmation])
   end
 
 end

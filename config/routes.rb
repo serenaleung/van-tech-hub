@@ -6,12 +6,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create] do
      delete :destroy, on: :collection
    end
-  resources :users, only: [:new, :create]
+  resources :users
   resources :admin, only: [:index]
 
   namespace :admin do
   resources :claims
-  resources :adminuser, only: [:edit, :update, :destroy]
+
 end
 
   root 'welcome#index'
