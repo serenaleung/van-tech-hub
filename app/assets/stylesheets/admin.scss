@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+$font-stack: "OhmegaSans", sans-serif;
+$bodyText: "AvenirNext", sans-serif;
+body {
+  font-family: $bodyText;
+}
+
 $background: #293F55;
 $orgBg: #FF9F9F;
 $orgText: #761F72;
@@ -19,17 +26,17 @@ $techText: #95DBE0;
 // $orgBg: #8FB449;
 // $orgText: #EAF25D;
 
-.l400 {
-   font-family: 'Lato', sans-serif;
-   font-weight: 400;
-   font-style: normal;
-}
-
-.l900 {
-   font-family: 'Lato', sans-serif;
-   font-weight: 900;
-   font-style: normal;
-}
+// .l400 {
+//    font-family: 'Lato', sans-serif;
+//    font-weight: 400;
+//    font-style: normal;
+// }
+//
+// .l900 {
+//    font-family: 'Lato', sans-serif;
+//    font-weight: 900;
+//    font-style: normal;
+// }
 
 .admin {
   background-color: $background;
@@ -77,6 +84,7 @@ $techText: #95DBE0;
   border-radius: 0.6em 0.6em 0 0 ;
   z-index: 0;
   position: relative;
+  font-weight: bold;
 }
 
 .pageTitle {
@@ -96,30 +104,6 @@ thead {
   border-bottom: 1px solid $newsBg !important;
 }
 
-#rectangle {
-  margin-top: -1.9em;
-	width: 70vw;
-	height:80vh;
-  border-radius: 1em;
-  z-index: 1em;
-  top: -1em;
-  position: relative;
-  background-color: $orgBg;
-}
-
-.userBoxes {
-  margin: 0 auto;
-  // padding-left: 4vw;
-}
-
-.col.s2 {
-    width: 16% !important;
-  }
-
-.h5class {
-  padding: 0.8em 0 .5em 3em !important;
-}
-
 .pendingTable {
   border-radius: 1em;
   overflow: hidden;
@@ -129,10 +113,14 @@ thead {
   background-color: #FFFDD7;
   padding: 3em;
   // margin: 1em;
-  width: 90%;
+  min-width: 90%;
   position: relative;
   z-index: 0;
   margin: 0 auto;
+
+  tbody tr:last-child td {
+    padding-bottom: 1em !important;
+  }
 }
 
 .pendingTable:hover {
@@ -142,12 +130,44 @@ thead {
   position: relative;
 }
 
-
 tr:hover {
-    background-color: rgba($newsBg, 0.2) !important;
+  background-color: rgba($newsBg, 0.2) !important;
 
 }
 
-table tbody tr:last-child {
-  padding-bottom: 3em !important;
+#rectangle {
+  margin-top: -2.4em;
+	width: 70vw;
+	min-height:80vh;
+  border-radius: 1em;
+  z-index: 1em;
+  top: -1em;
+  position: relative;
+  background-color: $orgBg;
+  padding-bottom: 1em;
+}
+
+.userBoxes {
+  margin: 0 auto;
+}
+
+.col.s2 {
+    width: 16% !important;
+  }
+
+.h5class {
+  padding: 0.3em 0 .5em 3em !important;
+  font-weight: bold;
+}
+.h5class1 {
+  padding: 0.9em 0 .5em 3em !important;
+  font-weight: bold;
+}
+
+.titleAdmin {
+  font-family: $font-stack;
+  padding: 0 0 0em 0.4em;
+  margin: -0.4em 0 0.4em;
+  z-index: 2;
+  position: relative;
 }

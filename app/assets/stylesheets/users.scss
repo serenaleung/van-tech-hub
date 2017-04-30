@@ -2,9 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$font-stack: OhmegaSans, sans-serif;
+$font-stack: "OhmegaSans", sans-serif;
 $main-color: #FEDC3D;
 
+.title {
+  font-family: $font-stack;
+  margin-left: -0.2em;
+}
 
 .parallax-container.parallax {
       // height: 8000px;
