@@ -34,9 +34,18 @@ gem 'cancancan', '~> 1.10'
 gem 'cowsay', '~> 0.3.0'
 gem 'faker', github: 'stympy/faker'
 
+
 gem 'font-awesome-sass', '~> 4.7.0'
 
 gem 'materialize-sass'
+
+gem 'meetup_client_rails'
+gem 'simple_calendar'
+
+gem 'cognitivebing'
+
+gem 'crunchbase-ruby-library'
+
 
 
 # Use Capistrano for deployment
