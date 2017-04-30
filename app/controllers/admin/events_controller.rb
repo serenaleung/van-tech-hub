@@ -16,6 +16,8 @@ class Admin::EventsController < ApplicationController
     def destroy
         @meetup = MeetupGroup.find(params[:id])
         @meetup.destroy
+        @event = Event.find(params[:id]) #this could break easily if IDs get mismatched, should be referenced or something
+        @event.destroy
         redirect_to admin_events_path
     end
     
@@ -30,6 +32,6 @@ class Admin::EventsController < ApplicationController
                 desc: meetup.description
             })
         end
-        
     end
+
 end
