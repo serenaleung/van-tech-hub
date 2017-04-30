@@ -34,6 +34,10 @@ gem 'cancancan', '~> 1.10'
 gem 'cowsay', '~> 0.3.0'
 gem 'faker', github: 'stympy/faker'
 
+gem 'font-awesome-sass', '~> 4.7.0'
+
+gem 'materialize-sass'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
