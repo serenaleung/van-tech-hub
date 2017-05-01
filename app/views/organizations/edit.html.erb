@@ -1,30 +1,42 @@
+<center>
 <%= @organization.errors.full_messages.join(', ') %>
 <%= form_for @organization do |f| %>
   <div>
     <%= f.label :name %>
-    <%= f.text_field :name, value: @organization.name %>
+    <br>
+    <%= f.text_field :name, size: "45%x1%", value: @organization.name %>
   </div>
+  <br>
   <div>
     <%= f.label :manager %>
-    <%= f.text_field :manager, value: @organization.manager %>
+    <br>
+    <%= f.text_field :manager, size: "45%x1%", value: @organization.manager %>
   </div>
+  <br>
   <div>
     <%= f.label :overview %>
-    <%= f.text_field :overview, value: @organization.overview%>
+    <br>
+    <%= f.text_area :overview, size: "45%x5%", value: @organization.overview%>
   </div>
+  <br>
   <div>
     <%= f.label :webiste %>
-    <%= f.text_field :website, value: @organization.website %>
+    <br>
+    <%= f.text_field :website, size: "45%x1%",  value: @organization.website %>
   </div>
+  <br>
   <div>
     <%= f.label :twitter %>
-    <%= f.text_area :twitter, value: @organization.twitter %>
+    <br>
+    <%= f.text_area :twitter, size: "45%x1%", value: @organization.twitter %>
   </div>
-
+  <br>
   <div class="form-group">
     <%= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{ selected: @organization.adapted_technologies.map(&:id) },{ multiple: true, class: 'chosen-select', style: 'width: 400px'} %>
   </div>
-
+  <hr>
 
   <%= f.submit %>
 <% end %>
+
+</center>

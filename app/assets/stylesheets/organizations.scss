@@ -1,3 +1,15 @@
-// Place all the styles related to the organizations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.adminpanel{
+    height: 500px;
+    overflow: scroll;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+    text-align: center;
+}

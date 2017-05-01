@@ -14,7 +14,8 @@
       end
 
     def create
-      @organization = Organization.new organization_params
+      @organization = Organization.new(super_org_params)
+
       if @organization.save
         redirect_to organization_path(@organization)
       else
@@ -23,10 +24,21 @@
     end
 
     def edit
+
       @organization = Organization.find params[:id]
       @user = current_user
+
     end
-    
+
+
+    def update
+    @organization = Organization.find params[:id]
+
+    @organization.update(super_org_params)
+    redirect_to organization_path(@organization), notice: 'Organization updated!'
+  end
+
+
     def confirm
       @organization = Organization.find params[:id]
       @user = current_user
@@ -41,11 +53,12 @@
     end
 
 
-    def update
+    def destroy
+           @organization = Organization.find params[:id]
+             @organization.destroy
+             redirect_to organizations_path, notice: 'Organization Deleted💀'
+      end
 
-      # redirect_to admin_index_path, notice: 'Pending'
-
-    end
 
       private
 
@@ -54,7 +67,12 @@
         end
 
         def organization_params
-          params.require(:organization).permit([:name, :manager, :website, :twitter, :overview, { technology_id: [] } ])
+          params.require(:organization).permit([:name, :manager, :website, :twitter, :overview])
         end
+
+        def super_org_params
+          organization_params.merge({adapted_technologies: (params[:organization][:adapted_technologies] || []).map{ |x| Technology.find(x) unless x.blank?}.compact})
+        end
+
 
   end

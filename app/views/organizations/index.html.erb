@@ -1,8 +1,31 @@
+<center>
 <h1>Organization List</h1>
 
-<% @organizations.each do |organization| %>
-  <a href="<%= organization_path(organization) %>" style="text-decoration: none;">
-  <h3><%= organization.name %></h3>
-    </a>
-  <hr>
-<% end %>
+<div class="adminpanel">
+
+<table>
+  <tr>
+    <th>Organization Name</th>
+    <th>Published</th>
+    <th>Action</th>
+  </tr>
+
+
+
+  <% @organizations.each do |organization| %>
+<tr>
+  <td><%= organization.id %>. <%= organization.name %></td>
+  <td><%= organization.is_publish %></td>
+  <td>
+    <a href="<%= organization_path(organization) %>" style="text-decoration: none;">Show</a> |
+    <a href="<%= edit_organization_path(organization) %>" style="text-decoration: none;">Edit</a> |
+    <%= link_to "Remove", organization_path(organization), method: :delete,
+                    data: { confirm: 'Are you sure?' } %> |
+  </td>
+<tr>
+  <% end %>
+
+</table>
+</div>
+
+</center>
