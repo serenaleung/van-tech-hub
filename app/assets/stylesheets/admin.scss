@@ -1,3 +1,148 @@
-// Place all the styles related to the admin controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$font-stack: "OhmegaSans", sans-serif;
+$bodyText: "AvenirNext", sans-serif;
+body {
+  font-family: $bodyText;
+}
+
+$background: #293F55;
+$orgBg: #FF9F9F;
+$orgText: #761F72;
+$eventBg: #0FC2E2;
+$eventText: #FEDC3D;
+$newsBg: #FFE35C;
+$newsText: #01ABAA;
+$usersBg: #8FB449;
+$usersText: #EAF25D;
+$techBg: #724499;
+$techText: #95DBE0;
+
+.admin {
+  background-color: $background;
+}
+
+.bob {
+	width: 70%;
+	height: 90%;
+	background: red;
+}
+
+.tab:first-child {
+    margin-left: 0.55em !important;
+    color: $orgText;
+    background-color: $orgBg;
+}
+.tab:nth-child(2) {
+    color: $eventText;
+    background-color: $eventBg;
+}
+.tab:nth-child(3) {
+    color: $newsText;
+    background-color: $newsBg;
+}
+.tab:nth-child(4) {
+    color: $usersText;
+    background-color: $usersBg;
+}
+.tab:nth-child(5) {
+    color: $techText;
+    background-color: $techBg;
+}
+.tab:nth-child(6) {
+    color: $techText;
+    background-color: rgba($techBg, 0);
+}
+
+.tab{
+  margin-top: 8vh;
+  padding: 0.4em 0.6em 1.8em 1em !important;
+  width: 15%;
+	background: white;
+  border-radius: 0.6em 0.6em 0 0 ;
+  z-index: 0;
+  position: relative;
+  font-weight: bold;
+}
+
+.pageTitle {
+  color: white;
+  z-index: 4;
+  position: relative;
+  padding: 0em;
+  margin: -0.1em;
+}
+
+td, th{
+  padding: 1.2em 3em 0.7em !important;
+  font-size: 16.5px;
+}
+
+thead {
+  border-bottom: 1px solid $newsBg !important;
+}
+
+.pendingTable {
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 5px $newsBg;
+  width: 50%;
+  // border: 7px solid $newsBg;
+  background-color: #FFFDD7;
+  padding: 3em;
+  // margin: 1em;
+  min-width: 90%;
+  position: relative;
+  z-index: 0;
+  margin: 0 auto;
+
+  tbody tr:last-child td {
+    padding-bottom: 1em !important;
+  }
+}
+
+.pendingTable:hover {
+  // border-radius: 1em;
+  box-shadow: inset 0 0 0 5px $newsBg !important;
+  z-index: 3;
+  position: relative;
+}
+
+tr:hover {
+  background-color: rgba($newsBg, 0.2) !important;
+}
+
+#rectangle {
+  margin-top: -2.4em;
+	width: 70vw;
+	min-height:80vh;
+  border-radius: 1em;
+  z-index: 1em;
+  top: -1em;
+  position: relative;
+  background-color: $orgBg;
+  padding-bottom: 1em;
+}
+
+.userBoxes {
+  margin: 0 auto;
+}
+
+.col.s2 {
+    width: 16% !important;
+  }
+
+.h5class {
+  padding: 0.3em 0 .5em 3em !important;
+  font-weight: bold;
+}
+.h5class1 {
+  padding: 0.9em 0 .5em 3em !important;
+  font-weight: bold;
+}
+
+.titleAdmin {
+  font-family: $font-stack;
+  padding: 0 0 0em 0.4em;
+  margin: -0.4em 0 0.4em;
+  z-index: 2;
+  position: relative;
+}
