@@ -1,11 +1,18 @@
   class OrganizationsController < ApplicationController
+    before_action :authenticate_user!
 
     def new
     @organization = Organization.new
     end
 
     def index
-      @organizations = Organization.all.order('created_at DESC')
+          # redirect_to root_path, alert: "access defined" unless can? :index, @organization
+          if :user_admin?
+            @organizations = Organization.all.order('created_at DESC')
+          else
+            redirect_to directory_index_path
+            return
+          end
     end
 
     def show
@@ -15,7 +22,7 @@
 
     def create
       @organization = Organization.new(super_org_params)
-
+      @organization.users << current_user
       if @organization.save
         redirect_to organization_path(@organization)
       else
@@ -24,7 +31,7 @@
     end
 
     def edit
-
+      redirect_to root_path, alert: "access defined" unless can? :edit, @organization
       @organization = Organization.find params[:id]
       @user = current_user
 
@@ -55,7 +62,9 @@
 
     def destroy
            @organization = Organization.find params[:id]
-             @organization.destroy
+
+            @organization.destroy
+
              redirect_to organizations_path, notice: 'Organization Deleted💀'
       end
 
@@ -67,7 +76,7 @@
         end
 
         def organization_params
-          params.require(:organization).permit([:name, :manager, :website, :twitter, :overview])
+          params.require(:organization).permit([:name, :manager, :website, :twitter, :overview, :avatar])
         end
 
         def super_org_params

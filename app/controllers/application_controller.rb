@@ -16,6 +16,13 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path, notice: 'You must be signed in!'
     end
   end
+  helper_method :authenticate_user!
 
-  
+  def user_admin?
+    current_user.is_admin?
+  end
+  helper_method :user_admin?
+
+
+
 end

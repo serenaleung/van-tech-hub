@@ -1,4 +1,6 @@
 class DirectoryController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     if Organization.count == 0
       find_companies
@@ -14,6 +16,12 @@ class DirectoryController < ApplicationController
         i += 1
       end
     end
+
+    if params[:search]
+      @organizations = Organization.search(params[:search]).order("created_at DESC")
+    else
+      @organizations = Organization.all.order("created_at DESC")
+    end
   end
 
   private
@@ -23,7 +31,7 @@ class DirectoryController < ApplicationController
       companies = JSON.parse(response.body)
       company_count = companies['data']['items'].count
 
-      counter = 0
+      # counter = 0
 
       companies['data']['items'].each_with_index do |company, index|
         org = Organization.new({
@@ -34,17 +42,24 @@ class DirectoryController < ApplicationController
           province: company['properties']['region_name']
           })
 
-        info = Clearbit::Company.find(domain: org.website, stream: true)
+        begin
+          info = Clearbit::Company.find(domain: org.website, stream: true)
+        rescue
+          info = nil
+        end
 
-        org.street = "#{info.geo.streetNumber} #{info.geo.streetName}"
-        org.overview = info.description
-        org.latitude = info.geo.lat
-        org.longitude = info.geo.lng
+        if !info.nil?
+          org.street = "#{info.geo.streetNumber} #{info.geo.streetName}"
+          org.overview = info.description
+          org.employee = info.metrics.employees
+          org.latitude = info.geo.lat
+          org.longitude = info.geo.lng
+          org.logo = info.logo
 
-        org.save
-
-        counter += 1
-        break if counter == 10
+          org.save
+          # counter += 1
+        end
+        # break if counter == 10
       end
     end
 end

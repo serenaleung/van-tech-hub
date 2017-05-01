@@ -1,5 +1,6 @@
 class Admin::ClaimsController < ApplicationController
-
+  before_action :authenticate_user!
+  before_action :user_admin?
 
 def update
 @user = User.find params[:id]

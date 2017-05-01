@@ -1,7 +1,7 @@
 <h1>NEW ORGANIZATION</h1>
 
 <%= @organization.errors.full_messages.join(', ') %>
-<%= form_for @organization do |f| %>
+<%= form_for(@organization, multipart: true) do |f| %>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -11,8 +11,28 @@
     <%= f.text_field :manager %>
   </div>
   <div>
+    <%= f.label :street  %>
+    <%= f.text_field :street %>
+  </div>
+  <div>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+  <div>
+    <%= f.label :province %>
+    <%= f.text_field :province %>
+  </div>
+  <div>
+      <%= f.label :postal_code %>
+      <%= f.text_field :postal_code %>
+  </div>
+  <div>
     <%= f.label :overview %>
     <%= f.text_field :overview %>
+  </div>
+  <div>
+    <%= f.label :employee %>
+    <%= f.text_field :employee %>
   </div>
   <div>
     <%= f.label :webiste %>
@@ -22,7 +42,10 @@
     <%= f.label :twitter %>
     <%= f.text_area :twitter %>
   </div>
-
+  <div class="field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
   <div class="form-group">
     <%= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{},{ multiple: true, class: 'chosen-select', style: 'width: 400px' } %>
   </div>

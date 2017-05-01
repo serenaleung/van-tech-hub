@@ -22,18 +22,49 @@
   </head>
 
   <body>
+
+    <% if flash[:notice] %>
+        <div class="alert alert-success"><%= flash[:notice] %></div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-danger"><%= flash[:alert] %></div>
+      <% end %>
+
     <%= yield %>
 
 
     <!-- FOOTER -->
+    <br>
+    <br>
+    <br>
     <nav class="bottom-nav">
       <div class="nav-wrapper">
         <div class="foot-right"><span class="foot-quote">Built and maintained by students of CodeCore<span><a href="#" class="brand-logo right"><%= image_tag "codecore.png", class: "logo-img" %></a></div>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="sass.html">Login</a></li>
-          <li><a href="badges.html">Sign up</a></li>
-          <li><a href="collapsible.html">Explore</a></li>
+
+
+          <li><a href="/">Home</a></li>
+          <li><a href="/sessions/new">Login</a></li>
+          <li><a href="/users/new">Sign up</a></li>
+
+
+          <% if user_signed_in? %>
+            <% current_user = User.find_by_id session[:user_id] %>
+
+
+            <li><a href="/directory">Explore</a></li>
+            <li><a href="/sessions" data-method = "delete">Log Out</a></li>
+
+
+            <% if current_user.is_admin? %>
+            <li><a href="/admin">Admin</a></li>
+            <li><a href="/organizations/new">New Organization</a></li>
+            <% elsif current_user.organization_id == nil %>
+            <li><a href="/organizations/new">New Organization</a></li>
+            <% end %>
+
+
+          <% end %>
+
         </ul>
       </div>
     </nav>

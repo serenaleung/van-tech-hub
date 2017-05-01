@@ -1,10 +1,43 @@
-<h1>Login</h1>
-<%= form_tag sessions_path do %>
-<%= label_tag :email %>
-<%= email_field_tag :email %>
-<%= label_tag :password %>
-<%= password_field_tag :password %>
-<%= submit_tag "Login" %>
+<body class="bodyText">
+
+  <div class="container">
+    <h1 class="title">login</h1>
+    <div class="parallax-container parallax1 responsive-img">
+    </div>
+      <div class="row">
+        <div class="col s12">
+          <%= form_tag sessions_path do %>
+            <div class="row">
+              <div id="formUser" class="input-field col s6">
+                  <%= label_tag :email %>
+                  <%= email_field_tag :email, nil, class: 'validate', id: 'name', type: 'text' %>
+              </div>
+            </div>
+            <div class="row">
+              <div id="formUser" class="input-field col s12">
+                <%= label_tag :password %>
+                <%= password_field_tag :password, nil, class: 'validate', id: 'password', type: 'password'%>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 btncontainer">
+                <%= submit_tag 'Sign In', id: 'btnUser', class: 'waves-effect waves-light btn'%>
+              </div>
+            </div>
+            <% end %>
+        </div>
+      </div>
+  </div>
+</body>
 
 
-<% end %>
+<!-- <h1>Login</h1> -->
+<%#= form_tag sessions_path do %>
+<%#= label_tag :email %>
+<%#= email_field_tag :email %>
+<%#= label_tag :password %>
+<%#= password_field_tag :password %>
+<%#= submit_tag "Login" %>
+
+
+<%# end %>

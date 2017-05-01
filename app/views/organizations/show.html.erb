@@ -3,6 +3,10 @@
 <h2>REAL PAGE</h2>
 
 <h2><%= @organization.name %></h2>
+
+<!--this needs a rescue(?)/validation and some sort of comparison to see if the logo column already has data-->
+<%= image_tag @organization.avatar.url %>
+
 <p>Number of Employee: <%= @organization.employee %></p>
 <p>Manager: <%= @organization.manager %></p>
 <p>Address: <%= @organization.street %>,<%= @organization.city %>,<%= @organization.province %>,<%= @organization.postal_code %> </p>

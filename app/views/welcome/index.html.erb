@@ -1,17 +1,26 @@
+
 <!-- SECTION 1 -->
 <section>
   <div class="section1">
     <h1 class="maintitle">vancouver tech hub</h1>
-    <div class="main-btn-container">
-      <a class="waves-effect waves-light btn" id="main-btn">Sign Up</a>
-      <a class="waves-effect waves-light btn" id="main-login-btn">Login</a>
-      <a class="waves-effect waves-light btn" id="main-btn">Explore</a>
-    </div>
-    <div class="login-btn">
-      <span class="login">LOGIN</span>  <i class="fa fa-sign-in fa-2x" aria-hidden="true"></i>
-    </div>
     <%= image_tag "landmark.png", class: "landmark" %>
     <%= image_tag "cloud.png", class: "cloud" %>
+    <div class="main-btn-container">
+
+      <% if user_signed_in? %>
+      <a href="/directory" class="waves-effect waves-light btn" id="main-btn">Explore</a>
+      <% else %>
+      <a href="/users/new" class="waves-effect waves-light btn" id="main-btn">Sign Up</a>
+      <a href="/sessions/new" class="waves-effect waves-light btn" id="main-login-btn">Login</a>
+      <% end %>
+    </div>
+    <div class="login-btn">
+
+      <% if user_signed_in? %>
+      <span class="login"><a href="/sessions/new">LOG OUT</a></span>  <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
+      <% else %>
+      <span class="login"><a href="/sessions/new">LOGIN</a></span>  <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
+      <% end %>
   </div>
 </section>
 
@@ -39,6 +48,7 @@
   <h2 class="section3title">explore</h2>
 </nav>
 
+
 <!-- SECTION 3 -->
 <section>
   <div class="section3">
@@ -52,9 +62,11 @@
   <div class="section4">
     <div class="circles-container">
       <h2 class="section4title">get to know your community</h2>
-      <div class="circle z-depth-2"><%= image_tag "directory.png", class: "circle-img" %><span class="circle-text">Directory</span></div>
-      <div class="circle z-depth-2"><%= image_tag "calendar.png", class: "circle-img" %><span class="circle-text">Events</span></div>
-      <div class="circle z-depth-2"><%= image_tag "news.png", class: "circle-img" %><span class="circle-text">News</span></div>
+      <a href="/directory"><div class="circle z-depth-2"><%= image_tag "directory.png", class: "circle-img" %><span class="circle-text">Directory</span></div></a>
+
+      <a href="/events"><div class="circle z-depth-2"><%= image_tag "calendar.png", class: "circle-img" %><span class="circle-text">Events</span></div></a>
+
+      <a href="/news"><div class="circle z-depth-2"><%= image_tag "news.png", class: "circle-img" %><span class="circle-text">News</span></div></a>
     </div>
     <div class="cloud-container">
       <%= image_tag "cloud1.png", class: "cloud1" %>
