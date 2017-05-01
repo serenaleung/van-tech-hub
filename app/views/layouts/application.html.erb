@@ -27,26 +27,6 @@
   </head>
 
   <body>
-    <a href="/organizations">Organization</a>
-    |
-    <a href="/organizations/new">Org New</a>
-    |
-    <a href="/technologies">Technology</a>
-    |
-    <a href="/admin">Admin</a>
-    |
-    <% if user_signed_in? %>
-       Hello <%= current_user.first_name %>,
-      <%= link_to 'Sign Out', sessions_path, method: :delete %>
-      <% else %>
-      <%= link_to 'Sign Up', new_user_path %>
-      |
-      <%= link_to 'Log In', new_session_path %>
-      <% end %>
-      <hr>
-
-
-
 
 <% if flash[:notice] %>
         <div class="alert alert-success"><%= flash[:notice] %></div>
@@ -61,14 +41,38 @@
     <script type="text/javascript" src="js/materialize.js"></script>
 
     <!-- FOOTER -->
+    <br>
+    <br>
+    <br>
     <nav class="bottom-nav">
       <div class="nav-wrapper">
         <div class="foot-right"><span class="foot-quote">Built and maintained by students of CodeCore<span><a href="#" class="brand-logo right"><%= image_tag "codecore.png", class: "logo-img" %></a></div>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="sass.html">Login</a></li>
-          <li><a href="badges.html">Sign up</a></li>
-          <li><a href="collapsible.html">Explore</a></li>
+
+
+          <li><a href="/">Home</a></li>
+
+
+          <% current_user = User.find_by_id session[:user_id] %>
+
+          <li><a href="/directory">Explore</a></li>
+          <li><a href="/sessions" data-method = "delete">Log Out</a></li>
+
+
+          <li><a href="/admin">Admin</a></li>
+          <li><a href="/organizations/new">New Organization</a></li>
+
+          <li><a href="/organizations/new">New Organization</a></li>
+
+
+
+
+          <li><a href="/sessions/new">Login</a></li>
+          <li><a href="/users/new">Sign up</a></li>
+
+      
+
+
         </ul>
       </div>
     </nav>
