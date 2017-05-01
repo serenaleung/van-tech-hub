@@ -1,27 +1,31 @@
-<div class="section1">
-  <h1 class="maintitle">vancouver tech hub</h1>
-  <%= image_tag "landmark.png", class: "landmark" %>
-  <%= image_tag "cloud.png", class: "cloud" %>
-  <div class="main-btn-container">
 
-    <% if user_signed_in? %>
-    <a href="/directory" class="waves-effect waves-light btn" id="main-btn">Explore</a>
-    <% else %>
-    <a href="/users/new" class="waves-effect waves-light btn" id="main-btn">Sign Up</a>
-    <a href="/sessions/new" class="waves-effect waves-light btn" id="main-login-btn">Login</a>
-    <% end %>
+<!-- SECTION 1 -->
+<section>
+  <div class="section1">
+    <h1 class="maintitle">vancouver tech hub</h1>
+    <%= image_tag "landmark.png", class: "landmark" %>
+    <%= image_tag "cloud.png", class: "cloud" %>
+    <div class="main-btn-container">
+
+      <% if user_signed_in? %>
+      <a href="/directory" class="waves-effect waves-light btn" id="main-btn">Explore</a>
+      <% else %>
+      <a href="/users/new" class="waves-effect waves-light btn" id="main-btn">Sign Up</a>
+      <a href="/sessions/new" class="waves-effect waves-light btn" id="main-login-btn">Login</a>
+      <% end %>
+    </div>
+    <div class="login-btn">
+
+      <% if user_signed_in? %>
+      <span class="login"><a href="/sessions/new">LOG OUT</a></span>  <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
+      <% else %>
+      <span class="login"><a href="/sessions/new">LOGIN</a></span>  <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
+      <% end %>
   </div>
-  <div class="login-btn">
+</section>
 
-    <% if user_signed_in? %>
-    <span class="login"><a href="/sessions/new">LOG OUT</a></span>  <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
-    <% else %>
-    <span class="login"><a href="/sessions/new">LOGIN</a></span>  <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
-    <% end %>
-
-  </div>
-</div>
-
+<!-- SECTION 2 -->
+<section class="superextra"></section>
 <div class="section2">
   <div class="section2text">
     <h2 class="section2title">About</h2>
@@ -44,54 +48,64 @@
   <h2 class="section3title">explore</h2>
 </nav>
 
-<div class="section3">
-  <div class="overlay" onClick="style.pointerEvents='none'"></div>
-  <iframe class = "map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10411.171433153073!2d-123.112195!3d49.280322149999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1493512760389" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
-</div>
 
-<div class="section4">
-  <div class="circles-container">
-    <h2 class="section4title">get to know your community</h2>
-    <a href="/directory"><div class="circle z-depth-2"><%= image_tag "directory.png", class: "circle-img" %><span class="circle-text">Directory</span></div></a>
-
-    <a href="/events"><div class="circle z-depth-2"><%= image_tag "calendar.png", class: "circle-img" %><span class="circle-text">Events</span></div></a>
-
-    <a href="/news"><div class="circle z-depth-2"><%= image_tag "news.png", class: "circle-img" %><span class="circle-text">News</span></div></a>
+<!-- SECTION 3 -->
+<section>
+  <div class="section3">
+    <div class="overlay" onClick="style.pointerEvents='none'"></div>
+    <iframe class = "map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10411.171433153073!2d-123.112195!3d49.280322149999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1493512760389" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
   </div>
-  <div class="cloud-container">
-    <%= image_tag "cloud1.png", class: "cloud1" %>
-  </div>
-</div>
+</section>
 
-<div class="section5">
-  <div class="container sec5">
-    <h2 class="section5title">contact us</h2>
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="John" id="first_name" type="text" class="validate">
-            <label for="first_name">First Name</label>
-          </div>
-          <div class="input-field col s6">
-            <input placeholder="Doe" id="last_name" type="text" class="validate">
-            <label for="last_name">Last Name</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="john.doe@gmail.com" id="email" type="email" class="validate">
-            <label for="email">Email</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <textarea placeholder="Feel free to let us know what you think of Vancouver Tech Hub!" id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Textarea</label>
-          </div>
-        </div>
-        <button class="btn waves-effect waves-light sub-btn" type="submit" name="action" id="submit-btn">Submit</button>
-      </form>
+<!-- SECTION 4 -->
+<section>
+  <div class="section4">
+    <div class="circles-container">
+      <h2 class="section4title">get to know your community</h2>
+      <a href="/directory"><div class="circle z-depth-2"><%= image_tag "directory.png", class: "circle-img" %><span class="circle-text">Directory</span></div></a>
+
+      <a href="/events"><div class="circle z-depth-2"><%= image_tag "calendar.png", class: "circle-img" %><span class="circle-text">Events</span></div></a>
+
+      <a href="/news"><div class="circle z-depth-2"><%= image_tag "news.png", class: "circle-img" %><span class="circle-text">News</span></div></a>
+    </div>
+    <div class="cloud-container">
+      <%= image_tag "cloud1.png", class: "cloud1" %>
     </div>
   </div>
-</div>
+</section>
+
+<!-- SECTION 5 -->
+<section>
+  <div class="section5">
+    <div class="container sec5">
+      <h2 class="section5title">contact us</h2>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="first_name" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <label for="textarea1">Textarea</label>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light sub-btn" type="submit" name="action" id="submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

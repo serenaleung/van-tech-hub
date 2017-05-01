@@ -1,44 +1,75 @@
-<h1>DIRECTORY</h1>
 
-<style>
-   #map {
-    height: 400px;
-    width: 100%;
-   }
-</style>
-
-<div id="map"></div>
-<script>
-  function initMap() {
-    const center = {lat: 49.2837745, lng: -123.1146751};
-    let orgs = <%= raw @orgs %>;
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 13,
-      center: center
-    });
-    for (var i = 0; i < orgs.length; i++) {
-      var org = orgs[i];
-      var marker = new google.maps.Marker({
-        position: {lat: org[1], lng: org[2]},
-        map: map,
-        title: org[0],
-        zIndex: org[3]
-      });
-    }
-  }
-</script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyjDO7vP98P6enrMggLCskPciKco8oB9A&callback=initMap">
-</script>
-
-<%= form_tag(directory_index_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Organizations" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
-
-<% if @organizations %>
-    <% @organizations.each do |organization| %>
-      <p><%= link_to organization.name, organization_path(organization) %></p>
-      <hr>
-    <% end %>
-<% end %>
+<body class="explore">
+  <div class="folders">
+    <div class="row">
+      <div class="tabby directory-directory"><h5 class="tab-text">Directory</h5><%= image_tag "directory.png", class: "tab-icon" %></div>
+      <div class="tabby events-directory"><h5 class="tab-text">Events</h5><%= image_tag "calendar-tab.png", class: "tab-icon" %></div>
+      <div class="tabby news-directory"><h5 class="tab-text">News</h5><%= image_tag "news-tab.png", class: "tab-icon" %></div>
+      <h3 class="pageTitle right-align titleAdmin">explore</h3>
+    </div>
+    <div id="rectangle">
+      <div class="map-container">
+        <div id="map"></div>
+        <script>
+          function initMap() {
+            const center = {lat: 49.2837745, lng: -123.1146751};
+            let orgs = <%= raw @orgs %>;
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 13,
+              center: center
+            });
+            for (var i = 0; i < orgs.length; i++) {
+              var org = orgs[i];
+              var marker = new google.maps.Marker({
+                position: {lat: org[1], lng: org[2]},
+                map: map,
+                title: org[0],
+                zIndex: org[3]
+              });
+            }
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyjDO7vP98P6enrMggLCskPciKco8oB9A&callback=initMap">
+        </script>
+      </div>
+      <div class="company-list">
+        <% if @organizations%>
+            <% @organizations.each_slice(3) do |row| %>
+              <div class="row">
+                <% row.each do |organization| %>
+                  <div class="col s12 m12 l4">
+                    <div class="card">
+                      <div class="card-top">
+                        <a href="<%= organization_path(organization) %>" style="text-decoration: none;" class="round-button btn-floating btn-large waves-effect waves-light red"><%= image_tag "news.png", class: "news-round" %></a>
+                        <div class="card-title-block">
+                          <a href="<%= organization_path(organization) %>" style="text-decoration: none;" class="card-title-text"><%= organization.name %></a>
+                        </div>
+                      </div>
+                      <div class="card-content">
+                        <div class="smallrow">
+                          <p class="card-subtitle">Website:</p>
+                          <p><a href="<%= organization.overview %>"><%= organization.website %></a></p>
+                        </div>
+                        <div class="smallrow">
+                          <p class="card-subtitle">About:</p>
+                          <p><%= truncate(organization.overview, length: 100) %></p>
+                        </div>
+                        <div class="smallrow">
+                          <p class="card-subtitle">Location:</p>
+                          <p><%= organization.street %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+        <% end %>
+        <div id="infinite-scrolling">
+          <%= will_paginate @organizations, :class => "paginate" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

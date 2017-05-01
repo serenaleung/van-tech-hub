@@ -5,7 +5,8 @@ class DirectoryController < ApplicationController
     if Organization.count == 0
       find_companies
     end
-    @organizations = Organization.all
+    @organizations = Organization.paginate(:page => params[:page], per_page: 6)
+    # @organizations = Organization.all
     total = @organizations.count
     @orgs = []
     i = 1

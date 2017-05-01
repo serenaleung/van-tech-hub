@@ -73,3 +73,7 @@
   right: 65px;
   text-align: right;
 }
+
+.pagination a li.active {
+  color: #fff;
+}
