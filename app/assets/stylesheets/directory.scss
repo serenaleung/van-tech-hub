@@ -52,18 +52,18 @@ $techText: #95DBE0;
 }
 
 .tabby.directory {
-    color: $orgText;
+    color: $red;
     background-color: $peach;
     z-index: 4;
 }
 .tabby.events {
-    color: $eventText;
+    color: $yellow;
     background-color: $eventBg;
     left: 25%;
     z-index: 2;
 }
 .tabby.news {
-    color: $newsText;
+    color: $blue;
     background-color: $newsBg;
     left: 45%;
     z-index: 1;
@@ -72,6 +72,7 @@ $techText: #95DBE0;
 .tab-text {
   text-align: center;
   padding: 7px;
+  font-weight: bolder;
 }
 
 .pageTitle {
@@ -91,6 +92,7 @@ $techText: #95DBE0;
 // DIRECTORY CONTENTS
 .map-container {
   padding: 2%;
+  z-index: 5;
 }
 
 #map {
@@ -99,11 +101,89 @@ $techText: #95DBE0;
  border-radius: 15px;
 }
 
-.card {
-  margin: 1%;
+.company-list {
+  padding: 1%;
 }
 
-.card-title {
-  border: thin blue solid;
+.card {
+  height: 330px;
+}
 
+.card-top {
+  padding: 5%;
+  max-height: 100px;
+}
+
+.card-title-block {
+  position: relative;
+  width: 70%;
+  left: 70px;
+  top: -45px;
+  color: black;
+}
+
+.card-title-text {
+  color: $red;
+  font-size: 150%;
+  font-weight: 600;
+  width: 80%;
+  height: 100%;
+  display: inline;
+}
+
+.card-content {
+  position: relative;
+  top: -25px;
+}
+
+.smallrow {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.card-subtitle {
+  font-weight: bold;
+}
+
+.round-button {
+  position: absolute;
+}
+
+.paginate {
+  margin-bottom: 2%;
+  text-align: center;
+  font-family: "AvenirNext";
+  font-size: 20px;
+}
+
+.tab-icon {
+  position: relative;
+  height: 40px;
+  left: 10%;
+  margin: 8px;
+}
+
+// MEDIA QUERIES
+@media (min-width : 768px) and (max-width: 991px){
+  .paginate {
+    margin-bottom: 10%;
+  }
+}
+
+@media (min-width: 769px ) {
+  .tab-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 768px ) {
+  .titleAdmin {
+    z-index: -1;
+  }
+  .tab-text {
+    display: none;
+  }
+  .paginate {
+    margin-bottom: 20%;
+  }
 }

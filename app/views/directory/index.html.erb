@@ -2,9 +2,9 @@
 <body class="explore">
   <div class="folders">
     <div class="row">
-      <div class="tabby directory"><h5 class="tab-text">Directory</h5></div>
-      <div class="tabby events"><h5 class="tab-text">Events</h5></div>
-      <div class="tabby news"><h5 class="tab-text">News</h5></div>
+      <div class="tabby directory"><h5 class="tab-text">Directory</h5><%= image_tag "directory.png", class: "tab-icon" %></div>
+      <div class="tabby events"><h5 class="tab-text">Events</h5><%= image_tag "calendar.png", class: "tab-icon" %></div>
+      <div class="tabby news"><h5 class="tab-text">News</h5><%= image_tag "news.png", class: "tab-icon" %></div>
       <h3 class="pageTitle right-align titleAdmin">explore</h3>
     </div>
     <div id="rectangle">
@@ -33,26 +33,43 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyjDO7vP98P6enrMggLCskPciKco8oB9A&callback=initMap">
         </script>
       </div>
-      <% if @organizations %>
-          <% @organizations.each_slice(3) do |row| %>
-            <div class="row">
-              <% row.each do |organization| %>
-                <div class="col s12 m4">
-                  <div class="card">
-                    <div class="card-image">
-                      <img src="images/sample-1.jpg">
-                      <span class="card-title"><%= organization.name %></span>
-                      <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                      <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+      <div class="company-list">
+        <% if @organizations%>
+            <% @organizations.each_slice(3) do |row| %>
+              <div class="row">
+                <% row.each do |organization| %>
+                  <div class="col s12 m12 l4">
+                    <div class="card">
+                      <div class="card-top">
+                        <a class="round-button btn-floating btn-large waves-effect waves-light red"><%= image_tag "news.png", class: "news-round" %></a>
+                        <div class="card-title-block">
+                          <div class="card-title-text"><%= organization.name %></div>
+                        </div>
+                      </div>
+                      <div class="card-content">
+                        <div class="smallrow">
+                          <p class="card-subtitle">Website:</p>
+                          <p><a href="<%= organization.overview %>"><%= organization.website %></a></p>
+                        </div>
+                        <div class="smallrow">
+                          <p class="card-subtitle">About:</p>
+                          <p><%= truncate(organization.overview, length: 100) %></p>
+                        </div>
+                        <div class="smallrow">
+                          <p class="card-subtitle">Location:</p>
+                          <p><%= organization.street %></p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-      <% end %>
+                <% end %>
+              </div>
+            <% end %>
+        <% end %>
+        <div id="infinite-scrolling">
+          <%= will_paginate @organizations, :class => "paginate" %>
+        </div>
+      </div>
     </div>
   </div>
 </body>
