@@ -12,9 +12,9 @@
 
 <div id="list-search-terms">
     <% if @search_terms %>
-        <% @search_terms.each do |search_term| %>
-          <p><%= search_term.search_term %></p>
-          <p><%= link_to 'Destroy', admin_news_path(search_term.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <% @search_terms.each do |search| %>
+          <p><%= search.search_term %></p>
+          <p><%= link_to 'Destroy', admin_news_path(search.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
           <hr>
         <% end %>
     <% end %>
