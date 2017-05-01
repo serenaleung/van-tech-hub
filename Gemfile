@@ -50,6 +50,7 @@ gem 'httparty'
 gem 'clearbit'
 gem 'geocoder'
 
+gem 'chosen-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

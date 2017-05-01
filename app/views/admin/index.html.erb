@@ -1,3 +1,4 @@
+
 <body class="admin">
   <div class="container">
     <div class="row">
@@ -15,87 +16,67 @@
       <div class="row">
         <div class="userBoxes">
           <span class="col s6 h5class">Pending Claim Requests</span>
-            <table class="highlight pendingTable">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Item Name</th>
-                  <th>Item Price</th>
-                  <th>Item Price</th>
-                </tr>
-              </thead>
+          <table class="highlight pendingTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Organization Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
 
-              <tbody>
-                <tr>
-                  <td>Alvin</td>
-                  <td>Something</td>
-                  <td>Something</td>
-                  <td>Accept Reject</td>
-                </tr>
-                <tr>
-                  <td>Alan</td>
-                  <td>Jellybean</td>
-                  <td>$3.76</td>
-                  <td>Accept Reject</td>
-                </tr>
-                <tr>
-                  <td>Jonathan</td>
-                  <td>Lollipop</td>
-                  <td>$7.00</td>
-                  <td>Accept Reject</td>
-                </tr>
-                <tr>
-                  <td>Jonathan</td>
-                  <td>Lollipop</td>
-                  <td>$7.00</td>
-                  <td>Accept Reject</td>
-                </tr>
-              </tbody>
-            </table>
+            <% @users.each do |user| %>
+            <% if user.organization_id != nil && user.org_approved == false %>
+            <tbody>
+              <tr>
+                <td><%= user.first_name %> <%= user.last_name %></td>
+                <td><%= user.email%></td>
+                <td><%= Organization.find(user.organization_id).name%></td>
+                <td><%= link_to "Accept", admin_claim_path(user), method: :patch %><%= link_to "Reject", admin_claim_path(user), method: :delete%></td>
+              </tr>
+            </tbody>
+            <% end %>
+            <% end %>
+          </table>
 
-          <!-- <h5>Admin</h5> -->
-           <span class="col s4 h5class1">Users</span>
-            <table class="highlight pendingTable">
-             <thead>
-               <tr>
-                   <th>Name</th>
-                   <th>Item Name</th>
-                   <th>Item Price</th>
-                   <th>Item Price</th>
-               </tr>
-             </thead>
+          <span class="col s4 h5class1">Users</span>
 
-             <tbody>
-               <tr>
-                 <td>Alvin</td>
-                 <td>Something</td>
-                 <td>Something</td>
-                 <td>Edit Delete</td>
-               </tr>
-               <tr>
-                 <td>Alan</td>
-                 <td>Jellybean</td>
-                 <td>$3.76</td>
-                 <td>Edit Delete</td>
-               </tr>
-               <tr>
-                 <td>Jonathan</td>
-                 <td>Lollipop</td>
-                 <td>$7.00</td>
-                 <td>Edit Delete</td>
-                 <%#= link_to '+', add_shop_path(product), :style=>'color: red;' %>
-               </tr>
-               <tr>
-                 <td>Jonathan</td>
-                 <td>Lollipop</td>
-                 <td>$7.00</td>
-                 <td>Edit Delete</td>
-               </tr>
-             </tbody>
-           </table>
-         </div>
-       </div>
+          <table class="highlight pendingTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Organization Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <% @users.each do |user| %>
+            <% if user.organization_id != nil && user.org_approved == false %>
+            <tbody>
+              <tr>
+                <td><%= user.first_name %> <%= user.last_name %></td>
+                <td><%= user.email%></td>
+                <td>
+                  <% if user.organization_id %>
+                  <%= Organization.find(user.organization_id).name %>
+                  <% end %>
+                  <br>
+                  <%= link_to "Edit", edit_user_path(user)%>
+                  <%= link_to "Delete", user_path(user), method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+                </td>
+                <td><%= link_to "Edit", edit_user_path(user)%>
+                <%= link_to "Delete", user_path(user), method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            </tbody>
+            <% end %>
+            <% end %>
+          </table>
+        </div>
+      </div>
     </div>
-
   </div>
 </body>

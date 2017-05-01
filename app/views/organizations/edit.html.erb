@@ -1,0 +1,30 @@
+<%= @organization.errors.full_messages.join(', ') %>
+<%= form_for @organization do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, value: @organization.name %>
+  </div>
+  <div>
+    <%= f.label :manager %>
+    <%= f.text_field :manager, value: @organization.manager %>
+  </div>
+  <div>
+    <%= f.label :overview %>
+    <%= f.text_field :overview, value: @organization.overview%>
+  </div>
+  <div>
+    <%= f.label :webiste %>
+    <%= f.text_field :website, value: @organization.website %>
+  </div>
+  <div>
+    <%= f.label :twitter %>
+    <%= f.text_area :twitter, value: @organization.twitter %>
+  </div>
+
+  <div class="form-group">
+    <%= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{ selected: @organization.adapted_technologies.map(&:id) },{ multiple: true, class: 'chosen-select', style: 'width: 400px'} %>
+  </div>
+
+
+  <%= f.submit %>
+<% end %>

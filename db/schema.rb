@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430215217) do
+ActiveRecord::Schema.define(version: 20170430215355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "adapts", force: :cascade do |t|
+    t.integer  "organization_id"
+    t.integer  "technology_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["organization_id"], name: "index_adapts_on_organization_id", using: :btree
+    t.index ["technology_id"], name: "index_adapts_on_technology_id", using: :btree
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -81,8 +90,11 @@ ActiveRecord::Schema.define(version: 20170430215217) do
     t.datetime "updated_at",                      null: false
     t.string   "email"
     t.string   "password_digest"
+    t.boolean  "org_approved"
     t.index ["organization_id"], name: "index_users_on_organization_id", using: :btree
   end
 
+  add_foreign_key "adapts", "organizations"
+  add_foreign_key "adapts", "technologies"
   add_foreign_key "users", "organizations"
 end

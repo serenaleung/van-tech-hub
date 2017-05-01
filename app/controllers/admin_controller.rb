@@ -16,4 +16,8 @@ class AdminController < ApplicationController
     def events_destroy
         # delete meetup group from table
     end
+def index
+  @users = User.all
+end
+
 end

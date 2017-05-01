@@ -53,6 +53,10 @@ GEM
     byebug (9.0.6)
     cancancan (1.16.0)
     choice (0.2.0)
+    chosen-rails (1.5.2)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     clearbit (0.2.7)
       nestful (~> 1.1.0)
     coffee-rails (4.2.1)
@@ -68,9 +72,9 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
-    geocoder (1.4.3)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    geocoder (1.4.3)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hirb (0.7.3)
@@ -199,13 +203,14 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   cancancan (~> 1.10)
+  chosen-rails
   clearbit
   coffee-rails (~> 4.2)
   cowsay (~> 0.3.0)
   crunchbase-ruby-library
   faker!
-  geocoder
   font-awesome-sass (~> 4.7.0)
+  geocoder
   hirb
   httparty
   interactive_editor

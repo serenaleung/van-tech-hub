@@ -1,0 +1,15 @@
+<h1>Confirmation</h1>
+<h1>Hello
+<%= @user.first_name %></h1>
+
+<p><% if @user.organization_id  %>
+It shows that you have claimed <%=Organization.find(@user.organization_id).name  %>in our record. Are you sure you are going to claim <%= @organization.name %> instead?</p>
+<% else %>
+
+<p>You are about to submist a request to claim the company <%= @organization.name %></p>
+<% end %>
+
+
+<%= link_to "Yes Submit Request", organizations_confirm_path(@organization, @user), method: :post%>
+
+<%= link_to "No (Go back to diretory)" %>
