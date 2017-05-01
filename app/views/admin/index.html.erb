@@ -3,12 +3,14 @@
   <div class="container">
     <div class="row">
       <div id="folders">
+
         <div class="col s2 tab l900"><%= link_to "Users", admin_index_path, :class => "usersLink"%></div>
         <div class="col s2 tab l900"><%= link_to "Events", admin_events_path, :class => "eventsLink" %></div>
         <div class="col s2 tab l900"><%= link_to "News", admin_news_index_path, :class => "newsLink" %></div>
         <div class="col s2 tab l900"><%= link_to "Organizations", organizations_path, :class => "orgLink" %></div>
         <div class="col s2 tab l900"><%= link_to "Technologies", technologies_path, :class => "techLink" %></div>
         <div class="col s2 tab"><h3 class="pageTitle right-align titleAdmin">Admin</h3></div>
+
       </div>
     </div>
     <div id="rectangle">
@@ -63,6 +65,7 @@
                   <%= Organization.find(user.organization_id).name %>
                   <% end %>
                   <br>
+
                 </td>
                 <td><%= link_to "Edit", edit_user_path(user)%>
                 <%= link_to "Delete", user_path(user), method: :delete,

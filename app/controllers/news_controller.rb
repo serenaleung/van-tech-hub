@@ -1,4 +1,7 @@
-class Admin::NewsController < ApplicationController
+
+class NewsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @search_terms = SearchTerm.all
   end
