@@ -3,11 +3,11 @@
   <div class="container">
     <div class="row">
       <div id="folders">
-        <a href="#"><div class="col s2 tab l900">Users</div></a>
-        <div class="col s2 tab l900">Events</div>
-        <div class="col s2 tab l900">News</div>
-        <div class="col s2 tab l900">Organizations</div>
-        <div class="col s2 tab l900">Technologies</div>
+        <div class="col s2 tab l900"><%= link_to "Users", admin_index_path, :class => "usersLink"%></div>
+        <div class="col s2 tab l900"><%= link_to "Events", admin_events_path, :class => "eventsLink" %></div>
+        <div class="col s2 tab l900"><%= link_to "News", admin_news_index_path, :class => "newsLink" %></div>
+        <div class="col s2 tab l900"><%= link_to "Organizations", organizations_path, :class => "orgLink" %></div>
+        <div class="col s2 tab l900"><%= link_to "Technologies", technologies_path, :class => "techLink" %></div>
         <div class="col s2 tab"><h3 class="pageTitle right-align titleAdmin">Admin</h3></div>
       </div>
     </div>
@@ -53,7 +53,7 @@
             </thead>
 
             <% @users.each do |user| %>
-            <% if user.organization_id != nil && user.org_approved == false %>
+
             <tbody>
               <tr>
                 <td><%= user.first_name %> <%= user.last_name %></td>
@@ -63,9 +63,6 @@
                   <%= Organization.find(user.organization_id).name %>
                   <% end %>
                   <br>
-                  <%= link_to "Edit", edit_user_path(user)%>
-                  <%= link_to "Delete", user_path(user), method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
                 </td>
                 <td><%= link_to "Edit", edit_user_path(user)%>
                 <%= link_to "Delete", user_path(user), method: :delete,
@@ -73,7 +70,7 @@
               </tr>
             </tbody>
             <% end %>
-            <% end %>
+
           </table>
         </div>
       </div>
