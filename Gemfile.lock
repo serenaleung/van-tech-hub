@@ -69,6 +69,8 @@ GEM
     execjs (2.7.0)
     ffi (1.9.18)
     geocoder (1.4.3)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hirb (0.7.3)
@@ -91,6 +93,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.5)
       mime-types (>= 1.16, < 4)
+    materialize-sass (0.98.2)
+      sass (~> 3.3)
     meetup_client_rails (0.1.1)
     method_source (0.8.2)
     mime-types (3.1)
@@ -195,12 +199,14 @@ DEPENDENCIES
   crunchbase-ruby-library
   faker!
   geocoder
+  font-awesome-sass (~> 4.7.0)
   hirb
   httparty
   interactive_editor
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  materialize-sass
   meetup_client_rails
   pg (~> 0.18)
   puma (~> 3.0)
