@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VanTechHub</title>
+    <title>Vancouver Tech Hub</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -16,11 +16,6 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <style>
       @import url('https://fonts.googleapis.com/css?family=Lato:400,900');
     </style>
@@ -36,29 +31,26 @@
     <a href="/admin">Admin</a>
     |
     <% if user_signed_in? %>
-       Hello <%= current_user.first_name %>,
-      <%= link_to 'Sign Out', sessions_path, method: :delete %>
-      <% else %>
-      <%= link_to 'Sign Up', new_user_path %>
-      |
-      <%= link_to 'Log In', new_session_path %>
-      <% end %>
-      <hr>
+     Hello <%= current_user.first_name %>,
+    <%= link_to 'Sign Out', sessions_path, method: :delete %>
+    <% else %>
+    <%= link_to 'Sign Up', new_user_path %>
+    |
+    <%= link_to 'Log In', new_session_path %>
+    <% end %>
+    <hr>
 
 
 
 
-<% if flash[:notice] %>
-        <div class="alert alert-success"><%= flash[:notice] %></div>
-      <% elsif flash[:alert] %>
-        <div class="alert alert-danger"><%= flash[:alert] %></div>
-      <% end %>
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
 
     <%= yield %>
 
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
 
     <!-- FOOTER -->
     <nav class="bottom-nav">
