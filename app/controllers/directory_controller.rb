@@ -47,10 +47,11 @@ class DirectoryController < ApplicationController
           org.employee = info.metrics.employees
           org.latitude = info.geo.lat
           org.longitude = info.geo.lng
+          org.logo = info.logo
 
           org.save
+          # counter += 1
         end
-        # counter += 1
         # break if counter == 10
       end
     end
