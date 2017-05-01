@@ -1,42 +1,58 @@
-<h1>DIRECTORY</h1>
 
-<style>
-   #map {
-    height: 400px;
-    width: 100%;
-   }
-</style>
-
-<body>
-<h3>My Google Maps Demo</h3>
-<div id="map"></div>
-<script>
-  function initMap() {
-    const center = {lat: 49.2837745, lng: -123.1146751};
-    let orgs = <%= raw @orgs %>;
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 13,
-      center: center
-    });
-    for (var i = 0; i < orgs.length; i++) {
-      var org = orgs[i];
-      var marker = new google.maps.Marker({
-        position: {lat: org[1], lng: org[2]},
-        map: map,
-        title: org[0],
-        zIndex: org[3]
-      });
-    }
-  }
-</script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyjDO7vP98P6enrMggLCskPciKco8oB9A&callback=initMap">
-</script>
-
-
-<% if @organizations %>
-    <% @organizations.each do |organization| %>
-      <p><%= organization.name %></p>
-      <hr>
-    <% end %>
-<% end %>
+<body class="explore">
+  <div class="folders">
+    <div class="row">
+      <div class="tabby directory"><h5 class="tab-text">Directory</h5></div>
+      <div class="tabby events"><h5 class="tab-text">Events</h5></div>
+      <div class="tabby news"><h5 class="tab-text">News</h5></div>
+      <h3 class="pageTitle right-align titleAdmin">explore</h3>
+    </div>
+    <div id="rectangle">
+      <div class="map-container">
+        <div id="map"></div>
+        <script>
+          function initMap() {
+            const center = {lat: 49.2837745, lng: -123.1146751};
+            let orgs = <%= raw @orgs %>;
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 13,
+              center: center
+            });
+            for (var i = 0; i < orgs.length; i++) {
+              var org = orgs[i];
+              var marker = new google.maps.Marker({
+                position: {lat: org[1], lng: org[2]},
+                map: map,
+                title: org[0],
+                zIndex: org[3]
+              });
+            }
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyjDO7vP98P6enrMggLCskPciKco8oB9A&callback=initMap">
+        </script>
+      </div>
+      <% if @organizations %>
+          <% @organizations.each_slice(3) do |row| %>
+            <div class="row">
+              <% row.each do |organization| %>
+                <div class="col s12 m4">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="images/sample-1.jpg">
+                      <span class="card-title"><%= organization.name %></span>
+                      <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                      <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</body>
