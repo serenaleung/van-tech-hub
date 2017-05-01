@@ -4,10 +4,16 @@
 
 $font-stack: "OhmegaSans", sans-serif;
 $main-color: #FEDC3D;
+.bodyText {
+    font-size: 20px;
+}
+
 
 .title {
   font-family: $font-stack;
   margin-left: -0.2em;
+  padding-top: 1em;
+  color: $main-color;
 }
 
 .parallax-container.parallax {
@@ -25,74 +31,67 @@ $main-color: #FEDC3D;
 body {
   margin: 0;
   padding: 0;
-  font-size: 20px;
-}
-
-h1 {
-  padding-top: 1em;
-  color: $main-color;
-  font-family: $font-stack;
 }
 
 /* label color */
-  input[type=email] {
+  #formUser.input[type=email] {
     border-bottom-color: white !important;
     &:focus{
       box-shadow: 0 1px 0 0 white !important;
     }
   }
-  input[type=password] {
+  #formUser.input[type=password] {
     border-bottom-color: white !important;
     &:focus{
       box-shadow: 0 1px 0 0 white !important;
     }
   }
-  input[type=text] {
+  #formUser.input[type=text] {
     border-bottom-color: white !important;
     &:focus{
       box-shadow: 0 1px 0 0 white !important;
     }
   }
-  .input-field {
+  #formUser.input-field {
      color: white;
-}
-   .input-field label {
+   }
+   #formUser.input-field label {
      color: white !important;
      border-bottom-color: white !important;
    }
    /* label focus color */
-   .input-field input[type=text]:focus + label {
+   #formUser.input-field input[type=text]:focus + label {
      color: #ffffff !important;
      border-bottom-color: white !important;
    }
    /* label underline focus color */
-   .input-field input[type=text]:focus {
+   #formUser.input-field input[type=text]:focus {
      border-bottom: 1px solid #ffffff !important;
      box-shadow: 0 1px 0 0 #ffffff !important;
      border-bottom-color: white !important;
    }
    /* valid color */
-   .input-field input[type=text].valid, .input-field input[type=password].valid,.input-field input[type=email].valid {
+   #formUser.input-field input[type=text].valid, .input-field input[type=password].valid,.input-field input[type=email].valid {
      border-bottom: 1px solid #ffffff !important;
      box-shadow: 0 1px 0 0 #ffffff !important;
      border-bottom-color: white !important;
    }
    /* invalid color */
-   .input-field input[type=text].invalid, .input-field input[type=password].invalid, .input-field input[type=email].invalid {
+   #formUser.input-field input[type=text].invalid, .input-field input[type=password].invalid, .input-field input[type=email].invalid {
      border-bottom: 1px solid #ffffff !important;
      box-shadow: 0 1px 0 0 #ffffff !important;
      border-bottom-color: white !important;
    }
    /* icon prefix focus color */
-   .input-field .prefix.active {
+   #formUser.input-field .prefix.active {
      color: #ffffff !important;
      border-bottom-color: white !important;
    }
 
-   .btn {
+   #btnUser.btn {
        background-color: $main-color !important;
    }
-   .waves-effect.waves-brown .waves-ripple {
+   #btnUser.waves-effect.waves-brown .waves-ripple {
      /* The alpha value allows the text and background color
      of the button to still show through. */
       background-color: rgba(121, 85, 72, 0.65);
