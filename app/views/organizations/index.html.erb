@@ -1,31 +1,47 @@
-<center>
-<h1>Organization List</h1>
+<body class="admin">
+  <div class="container">
+    <div class="row">
+      <div id="folders">
+        <div class="col s2 tab"><%= link_to "Users", admin_index_path, :class => "usersLink"%></div>
+        <div class="col s2 tab"><%= link_to "Events", admin_events_path, :class => "eventsLink" %></div>
+        <div class="col s2 tab"><%= link_to "News", admin_news_index_path, :class => "newsLink" %></div>
+        <div class="col s2 tab"><%= link_to "Organizations", organizations_path, :class => "orgLink" %></div>
+        <div class="col s2 tab"><%= link_to "Technologies", technologies_path, :class => "techLink" %></div>
+        <div class="col s2 tab"><h3 class="pageTitle right-align titleAdmin">Admin</h3></div>
+      </div>
+    </div>
+    <div id="rectangleOrg">
+      <!-- <h1>Organization List</h1> -->
+      <span class="col s2 meetupId">Organization List</span>
 
-<div class="adminpanel">
+      <div class="adminpanel">
 
-<table>
-  <tr>
-    <th>Organization Name</th>
-    <th>Published</th>
-    <th>Action</th>
-  </tr>
+        <table class="highlight orgTable">
+          <thead orgLine>
 
+            <tr>
+              <th>Organization Name</th>
+              <th>Published</th>
+              <th>Action</th>
+            </tr>
+          </thead>
 
+          <% @organizations.each do |organization| %>
+          <tr>
+            <td><%= organization.id %>. <%= organization.name %></td>
+            <td><%= organization.is_publish %></td>
+            <td>
+              <a href="<%= organization_path(organization) %>" style="text-decoration: none;">Show</a> |
+              <a href="<%= edit_organization_path(organization) %>" style="text-decoration: none;">Edit</a> |
+              <%= link_to "Remove", organization_path(organization), method: :delete,
+              data: { confirm: 'Are you sure?' } %> |
+            </td>
+            <tr>
+              <% end %>
 
-  <% @organizations.each do |organization| %>
-<tr>
-  <td><%= organization.id %>. <%= organization.name %></td>
-  <td><%= organization.is_publish %></td>
-  <td>
-    <a href="<%= organization_path(organization) %>" style="text-decoration: none;">Show</a> |
-    <a href="<%= edit_organization_path(organization) %>" style="text-decoration: none;">Edit</a> |
-    <%= link_to "Remove", organization_path(organization), method: :delete,
-                    data: { confirm: 'Are you sure?' } %> |
-  </td>
-<tr>
-  <% end %>
+            </table>
+          </div>
 
-</table>
-</div>
-
-</center>
+        </div>
+      </div>
+    </body>

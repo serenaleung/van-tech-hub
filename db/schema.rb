@@ -66,11 +66,11 @@ ActiveRecord::Schema.define(version: 20170501071631) do
     t.datetime "updated_at",                          null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "logo"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "logo"
   end
 
   create_table "search_terms", force: :cascade do |t|
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170501071631) do
 
   create_table "technologies", force: :cascade do |t|
     t.string   "language"
+    t.string   "framework"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

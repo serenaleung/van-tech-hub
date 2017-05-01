@@ -3,7 +3,7 @@ class DirectoryController < ApplicationController
 
   def index
     if Organization.count == 0
-      find_companies
+      # find_companies
     end
     @organizations = Organization.paginate(:page => params[:page], per_page: 6)
     # @organizations = Organization.all
@@ -17,11 +17,11 @@ class DirectoryController < ApplicationController
       end
     end
 
-    if params[:search]
-      @organizations = Organization.search(params[:search]).order("created_at DESC")
-    else
-      @organizations = Organization.all.order("created_at DESC")
-    end
+    # if params[:search]
+    #   @organizations = Organization.search(params[:search]).order("created_at DESC")
+    # else
+    #   @organizations = Organization.all.order("created_at DESC")
+    # end
   end
 
   private

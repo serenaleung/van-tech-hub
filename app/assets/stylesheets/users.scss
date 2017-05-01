@@ -4,6 +4,21 @@
 
 $font-stack: "OhmegaSans", sans-serif;
 $main-color: #FEDC3D;
+$tabMargin: -3.28em;
+$newsBg: #FFE35C;
+$orgBg: #FF9F9F;
+$background: #293F55;
+$orgBg: #FF9F9F;
+$orgText: #EAF25D;
+$eventBg: #0FC2E2;
+$eventText: #EFFFDD;
+$newsBg: #FFE35C;
+$newsText: #01ABAA;
+$usersBg: #8FB449;
+$usersText: #761F72;
+$techBg: #724499;
+$techText: #95DBE0;
+$tabMargin: -3.28em;
 .bodyText {
     font-size: 20px;
 }
@@ -16,9 +31,20 @@ $main-color: #FEDC3D;
   color: $main-color;
 }
 
-.parallax-container.parallax {
+// .parallax-container.parallax {
+//       // height: 8000px;
+//       width: 100vw;
+//       background-attachment: fixed;
+//       background-position: center;
+//       // background-position: right 10px top;
+//       background-repeat: no-repeat;
+//       // background-image:url('./signup1.jpg');
+//       background-image: url("signup1.jpg");
+//         height: 100%;
+//     }
+.bg{
       // height: 8000px;
-      max-width: 100%;
+      width: 100vw;
       background-attachment: fixed;
       background-position: center;
       // background-position: right 10px top;
@@ -27,6 +53,18 @@ $main-color: #FEDC3D;
       background-image: url("signup1.jpg");
         height: 100%;
     }
+
+#rectangleUsers {
+  margin-top: $tabMargin;
+	width: 70vw;
+	min-height:70vh;
+  border-radius: 1em;
+  z-index: 1em;
+  top: -1em;
+  position: relative;
+  background-color: $newsBg;
+  padding-bottom: 1em;
+}
 
 .signInText {
   color: white;
@@ -108,3 +146,29 @@ body {
   //  .waves-effect.waves-light.btn.waves-input-wrapper {
   //      background-color: $main-color;
   //  }
+#rectangleEditUser {
+
+  margin-top: $tabMargin;
+  width: 70vw;
+  min-height:70vh;
+  border-radius: 1em;
+  z-index: 1em;
+  top: -1em;
+  position: relative;
+  background-color: $orgBg;
+  padding-bottom: 1em;
+}
+
+// 
+// .rectangleEditInner {
+//   border-radius: 1em;
+//   overflow: hidden;
+//   box-shadow: inset 0 0 0 5px $orgText;
+//   width: 50%;
+//   background-color: #EFFFDD;
+//   padding: 3em;
+//   min-width: 90%;
+//   position: relative;
+//   z-index: 0;
+//   margin: 0 auto;
+// }
