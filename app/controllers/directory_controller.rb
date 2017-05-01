@@ -24,7 +24,7 @@ class DirectoryController < ApplicationController
       companies = JSON.parse(response.body)
       company_count = companies['data']['items'].count
 
-      counter = 0
+      # counter = 0
 
       companies['data']['items'].each_with_index do |company, index|
         org = Organization.new({
@@ -35,17 +35,23 @@ class DirectoryController < ApplicationController
           province: company['properties']['region_name']
           })
 
-        info = Clearbit::Company.find(domain: org.website, stream: true)
+        begin
+          info = Clearbit::Company.find(domain: org.website, stream: true)
+        rescue
+          info = nil
+        end
 
-        org.street = "#{info.geo.streetNumber} #{info.geo.streetName}"
-        org.overview = info.description
-        org.latitude = info.geo.lat
-        org.longitude = info.geo.lng
+        if !info.nil?
+          org.street = "#{info.geo.streetNumber} #{info.geo.streetName}"
+          org.overview = info.description
+          org.employee = info.metrics.employees
+          org.latitude = info.geo.lat
+          org.longitude = info.geo.lng
 
-        org.save
-
-        counter += 1
-        break if counter == 10
+          org.save
+        end
+        # counter += 1
+        # break if counter == 10
       end
     end
 end

@@ -3,6 +3,7 @@
   <%= image_tag "landmark.png", class: "landmark" %>
   <%= image_tag "cloud.png", class: "cloud" %>
   <div class="main-btn-container">
+
     <% if user_signed_in? %>
     <a href="/directory" class="waves-effect waves-light btn" id="main-btn">Explore</a>
     <% else %>

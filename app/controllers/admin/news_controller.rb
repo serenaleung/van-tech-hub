@@ -21,7 +21,8 @@ class Admin::NewsController < ApplicationController
     Article.destroy_all
 
     if SearchTerm.exists?
-      SearchTerm.each do |search|
+      searches = SearchTerm.all
+      searches.each do |search|
         add_to_news_table(search.search_term)
       end
     end
@@ -36,12 +37,17 @@ class Admin::NewsController < ApplicationController
     searchbody = JSON.parse(search.body)
 
     searchbody['items'].each do |news|
+      if news['pagemap']['cse_thumbnail'] == nil
+        image = ''
+      else
+        image = news['pagemap']['cse_thumbnail'][0]['src']
+      end
       Article.create({
         title: news['title'],
         link: news['link'],
         snippet: news['snippet'],
         displayLink: news['displayLink'],
-        image: news['pagemap']['cse_thumbnail'][0]['src'],
+        image: image,
         date: news['pagemap']['newsarticle'][0]['datepublished']
                      })
     end
