@@ -13,7 +13,16 @@ class Admin::NewsController < ApplicationController
 
 
   def destroy
+    @search_term = SearchTerm.find(params[:id])
+    @search_term.destroy
+    Article.destroy_all
 
+    if SearchTerm.exists?
+      SearchTerm.each do |search|
+        add_to_news_table(search.search_term)
+      end
+    end
+    redirect_to admin_news_index_path
   end
 
   private
