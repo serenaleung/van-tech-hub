@@ -23,7 +23,8 @@ $main-color: #FEDC3D;
       background-position: center;
       // background-position: right 10px top;
       background-repeat: no-repeat;
-      background-image:url('./signup1.jpg');
+      // background-image:url('./signup1.jpg');
+      background-image: url("signup1.jpg");
         height: 100%;
     }
 
@@ -34,19 +35,19 @@ body {
 }
 
 /* label color */
-  #formUser.input[type=email] {
+  #formUser input[type=email] {
     border-bottom-color: white !important;
     &:focus{
       box-shadow: 0 1px 0 0 white !important;
     }
   }
-  #formUser.input[type=password] {
+  #formUser input[type=password] {
     border-bottom-color: white !important;
     &:focus{
       box-shadow: 0 1px 0 0 white !important;
     }
   }
-  #formUser.input[type=text] {
+  #formUser input[type=text] {
     border-bottom-color: white !important;
     &:focus{
       box-shadow: 0 1px 0 0 white !important;
@@ -88,7 +89,7 @@ body {
      border-bottom-color: white !important;
    }
 
-   #btnUser.btn {
+   .waves-effect.waves-light.btn.waves-input-wrapper {
        background-color: $main-color !important;
    }
    #btnUser.waves-effect.waves-brown .waves-ripple {
