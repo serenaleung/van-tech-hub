@@ -4,6 +4,15 @@ class DirectoryController < ApplicationController
       find_companies
     end
     @organizations = Organization.all
+    total = @organizations.count
+    @orgs = []
+    i = 1
+    @organizations.each do |org|
+      if org.latitude != nil
+        @orgs.push([org.name, org.latitude, org.longitude, i])
+        i += 1
+      end
+    end
   end
 
   private
