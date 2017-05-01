@@ -1,14 +1,29 @@
-<h1>News Page</h1>
 
-<div id="event-list">
-  <% if @articles %>
-      <% @articles.each do |article| %>
-          <img src="<%= article.image %>"/>
-          <a href="<%= article.link %>"><%= article.title %></a>
-          <p><%= article.snippet %></p>
-          <a href="http://<%= article.displayLink %>"><%= article.displayLink %></a>
-          <p><%= article.date %></p>
-          <hr>
-      <% end %>
-  <% end %>
-</div>
+<body class="explore">
+  <div class="folders">
+    <div class="row">
+      <div class="tabby directory-news"><a href="/directory"><h5 class="tab-text">Directory</h5><%= image_tag "directory.png", class: "tab-icon" %></a></div>
+      <div class="tabby events-news"><a href="/events"><h5 class="tab-text">Events</h5><%= image_tag "calendar-tab.png", class: "tab-icon" %></a></div>
+      <div class="tabby news-news"><a href="/news"><h5 class="tab-text">News</h5><%= image_tag "news-tab.png", class: "tab-icon" %></a></div>
+      <h3 class="pageTitle right-align titleAdmin">explore</h3>
+    </div>
+    <div id="rectangle" class="news-box">
+      <h2 class="recent-news">Recent News</h2>
+      <div id="news-list">
+        <% if @articles %>
+            <% @articles.each do |article| %>
+              <div class = "news-article">
+                <img class = "news-img" src="<%= article.image %>"/>
+                <div class = "text-block"></div>
+                  <a class = "title-block" href="<%= article.link %>"><%= article.title %></a>
+                  <p><%= article.snippet %></p>
+                  <a href="http://<%= article.displayLink %>"><%= article.displayLink %></a>
+                  <p><%= article.date %></p>
+                </div>
+              </div>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>

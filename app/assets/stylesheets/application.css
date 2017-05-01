@@ -51,7 +51,12 @@
  font-weight: normal;
  font-style: normal;
  }
-
+ 
+ html {
+  margin: 0;
+  padding: 0;
+ }
+ 
  .bottom-nav {
    background-color: #01ABAA;
    position: fixed;

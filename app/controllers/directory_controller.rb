@@ -1,31 +1,27 @@
 class DirectoryController < ApplicationController
   before_action :authenticate_user!
 
-def index
-    
+  def index
     if Organization.count == 0
       # find_companies
-    else
-      if params[:search]
-        @organizations = Organization.search(params[:search]).order("created_at DESC")
-      else
-        # @organizations = Organization.all.order("created_at DESC")
-        @organizations = Organization.paginate(:page => params[:page], per_page: 6)
-      end
-      # @organizations = Organization.paginate(:page => params[:page], per_page: 6)
-      @orgs = []
-      i = 1
-      @organizations.each do |org|
-        if org.latitude != nil
-          @orgs.push([org.name, org.latitude, org.longitude, i])
-          i += 1
-        end
+    end
+    @organizations = Organization.paginate(:page => params[:page], per_page: 6)
+    # @organizations = Organization.all
+    total = @organizations.count
+    @orgs = []
+    i = 1
+    @organizations.each do |org|
+      if org.latitude != nil
+        @orgs.push([org.name, org.latitude, org.longitude, i])
+        i += 1
       end
     end
-    
-    # @organizations = Organization.paginate(:page => params[:page], per_page: 6)
-    # @organizations = Organization.all
-    
+
+    # if params[:search]
+    #   @organizations = Organization.search(params[:search]).order("created_at DESC")
+    # else
+    #   @organizations = Organization.all.order("created_at DESC")
+    # end
   end
 
   private
@@ -33,9 +29,9 @@ def index
     def find_companies
       response = HTTParty.get("https://api.crunchbase.com/v/3/odm-organizations?query=technology&locations=vancouver&organization_types=company&user_key=#{ENV['CRUNCHBASE_CLIENT_ID']}")
       companies = JSON.parse(response.body)
-      # company_count = companies['data']['items'].count
+      company_count = companies['data']['items'].count
 
-      counter = 0
+      # counter = 0
 
       companies['data']['items'].each_with_index do |company, index|
         org = Organization.new({
@@ -61,9 +57,9 @@ def index
           org.logo = info.logo
 
           org.save
-          counter += 1
+          # counter += 1
         end
-        break if counter == 20
+        # break if counter == 10
       end
     end
 end

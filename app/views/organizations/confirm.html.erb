@@ -1,15 +1,51 @@
-<h1>Confirmation</h1>
-<h1>Hello
-<%= @user.first_name %></h1>
+<body class="admin">
+  <div class="container">
+    <div class="row">
+      <div id="folders">
+        <div class="col s2 tab"><%= link_to "Users", admin_index_path, :class => "usersLink"%></div>
+        <div class="col s2 tab"><%= link_to "Events", admin_events_path, :class => "eventsLink" %></div>
+        <div class="col s2 tab"><%= link_to "News", admin_news_index_path, :class => "newsLink" %></div>
+        <div class="col s2 tab"><%= link_to "Organizations", organizations_path, :class => "orgLink" %></div>
+        <div class="col s2 tab"><%= link_to "Technologies", technologies_path, :class => "techLink" %></div>
+        <div class="col s2 tab"><h3 class="pageTitle right-align titleAdmin">Admin</h3></div>
+      </div>
+    </div>
+    <div id="rectangleOrg">
+<div class="rectangleOrgInner">
+    <!-- <span class="confirmationHeader">Confirmation</span> -->
+    <div class="row">
+      <div class="col s1"></div>
+    <div class="col s11"><h1 class="h1spacing">Hello <%= @user.first_name %></h1></div>
 
-<p><% if @user.organization_id  %>
-It shows that you have claimed <%=Organization.find(@user.organization_id).name  %>in our record. Are you sure you are going to claim <%= @organization.name %> instead?</p>
-<% else %>
+    <div class="row">
+      <div class="col s1"></div>
+    <div class="col s11 "><p><% if @user.organization_id  %>
+    It shows that you have claimed <%=Organization.find(@user.organization_id).name  %>in our record. Are you sure you are going to claim <%= @organization.name %> instead?</p>
+    <% else %>
 
-<p>You are about to submist a request to claim the company <%= @organization.name %></p>
-<% end %>
+    <p class="confirmSpacing">You are about to submit a request to claim the company <%= @organization.name %></p>
+    <% end %>
+    </div>
 
-
-<%= link_to "Yes Submit Request", organizations_confirm_path(@organization, @user), method: :post%>
-
-<%= link_to "No (Go back to diretory)" %>
+    <div class="row">
+      <div class="col s1"></div>
+      <div class="col s11"><%= link_to "Yes Submit Request", organizations_confirm_path(@organization, @user), method: :post%>
+        <br>
+    <%= link_to "No (Go back to directory)", organizations_path %></div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>

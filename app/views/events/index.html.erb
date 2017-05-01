@@ -2,9 +2,9 @@
 <body class="explore">
   <div class="folders">
     <div class="row">
-      <div class="tabby directory-events"><h5 class="tab-text">Directory</h5><%= image_tag "directory.png", class: "tab-icon" %></div>
-      <div class="tabby events-events"><h5 class="tab-text">Events</h5><%= image_tag "calendar-tab.png", class: "tab-icon" %></div>
-      <div class="tabby news-events"><h5 class="tab-text">News</h5><%= image_tag "news-tab.png", class: "tab-icon" %></div>
+      <div class="tabby directory-events"><a href="/directory"><h5 class="tab-text">Directory</h5><%= image_tag "directory.png", class: "tab-icon" %></a></div>
+      <div class="tabby events-events"><a href="/events"><h5 class="tab-text">Events</h5><%= image_tag "calendar-tab.png", class: "tab-icon" %></a></div>
+      <div class="tabby news-events"><a href="/news"><h5 class="tab-text">News</h5><%= image_tag "news-tab.png", class: "tab-icon" %></a></div>
       <h3 class="pageTitle right-align titleAdmin">explore</h3>
     </div>
     <div id="rectangle" class="events-box">
@@ -22,10 +22,25 @@
       </div>
       <div id="event-list">
           <% if @events %>
-              <% @events.each do |event| %>
-                <p><%= event.name %></p>
-                <p><%= Time.at(event.start_time) %></p>
-                <hr>
+            <% @events.each_slice(3) do |row| %>
+                <div class="row">
+                  <% row.each do |event| %>
+                    <div class="col s12 m12 l4">
+                      <div class="card">
+                        <div class="card-title-block-event">
+                          <p class="card-title-text-event"><%= event.name %></p>
+                          <p class="eventdate"><%= event.start_time.strftime("%m/%d/%Y at %I:%M%p") %></p>
+                        </div>
+                        <div class="card-content">
+                          <div class="smallrow">
+                            <p class="card-subtitle">About</p>
+                            <a href="http://www.meetup.com/<%= event.urlname %>">meetup.com/<%= event.urlname %></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
               <% end %>
           <% end %>
       </div>

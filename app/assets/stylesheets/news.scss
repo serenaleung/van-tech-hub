@@ -1,116 +1,166 @@
-// Place all the styles related to the news controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// COLORS
+$yellow: #FEDC3D;
+$peach: #FEA680;
+$blue: #01ABAA;
+$red: #F53240;
 
+$font-stack: "OhmegaSans", sans-serif;
+$bodyText: "AvenirNext", sans-serif;
+
+body {
+  font-family: $bodyText;
+}
 
 $background: #293F55;
-$orgBg: #FF9F9F;
-$orgText: #EAF25D;
+$orgText: #761F72;
 $eventBg: #0FC2E2;
-$eventText: #EFFFDD;
+$eventText: #FEDC3D;
 $newsBg: #FFE35C;
 $newsText: #01ABAA;
 $usersBg: #8FB449;
-$usersText: #761F72;
+$usersText: #EAF25D;
 $techBg: #724499;
 $techText: #95DBE0;
-$tabMargin: -3.28em;
 
-#rectangleNews {
-  margin-top: $tabMargin;
-	width: 70vw;
-	min-height:70vh;
-  border-radius: 1em;
-  z-index: 1em;
-  top: -1em;
+.explore {
+  background-color: $blue;
+  padding: 0;
+  margin: 0;
+}
+
+.folders {
   position: relative;
-  background-color: $newsBg;
-  padding-bottom: 1em;
+  width: 100vw;
+  height: 100%;
+  padding: 5%;
+  padding-bottom: 0;
 }
 
-.newsLine {
-  border-bottom: 1px solid $orgBg;
-}
-
-.newsTable {
-  border-radius: 1em;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 5px $orgBg;
-  width: 50%;
-  // border: 7px solid $newsBg;
-  background-color: #ffd7d7 !important;
-  padding: 3em;
-  // margin: 1em;
-  min-width: 90%;
+#rectangle.news-box {
   position: relative;
-  z-index: 0;
-  margin: 0 auto;
-
-  tbody tr:last-child td {
-    padding-bottom: 1em !important;
-  }
-}
-.newsTable:hover {
-  // border-radius: 1em;
-  box-shadow: inset 0 0 0 5px $orgBg !important;
+  border-radius: 15px 15px 0px 0px;
+  width: 100%;
+  height: 100%;
+  top: -10px;
+  background-color: $yellow;
   z-index: 3;
+  box-shadow: 0 -10px 20px rgba(0,0,0,0), 0 -6px 6px rgba(0,0,0,0.23);
+}
+
+.tabby {
+  border-radius: 15px 15px 0px 0px;
+  position: absolute;
+  width: 20%;
+  min-height: 60px;
+  box-shadow: 3px -10px 20px rgba(0,0,0,0), 3px -6px 6px rgba(0,0,0,0.23);
+}
+
+.tabby.directory-news {
+    color: $red;
+    background-color: $peach;
+    height: 80px;
+    z-index: 1;
+}
+.tabby.events-news {
+    color: $yellow;
+    background-color: $red;
+    left: 25%;
+    z-index: 2;
+}
+.tabby.news-news {
+    color: $blue;
+    background-color: $yellow;
+    left: 45%;
+    z-index: 4;
+}
+
+.tab-text {
+  text-align: center;
+  padding: 7px;
+  font-weight: bolder;
+}
+
+.pageTitle {
+  float: right;
+  margin: 0;
+  width: 100%;
+  color: white;
+  z-index: 14;
+}
+
+.titleAdmin {
+  font-family: $font-stack;
+  z-index: 2;
   position: relative;
 }
 
+.tab-icon-events {
+  position: relative;
+  height: 40px;
+  left: 10%;
+  margin: 8px;
+  z-index: 5;
+}
 
+// NEWS CONTENTS
+.news-box {
+  padding: 5%;
+  padding-bottom: 0;
+  padding-top: 2%;
+}
 
+.recent-news {
+  color: $blue;
+}
 
+.news-article {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 15px;
+}
 
-#formNews input[type=email] {
-  border-bottom-color: $techBg !important;
-  &:focus{
-    box-shadow: 0 1px 0 0 $techBg !important;
+.news-img {
+  position: relative;
+  left: 0;
+  height: 100%;
+  border-radius: 15px 0px 0px 15px;
+  z-index: 0;
+}
+
+// MEDIA QUERIES
+@media (min-width : 992px) and (max-width: 1199px) {
+  .main-cal {
+    display: none;
   }
 }
-#formNews input[type=password] {
-  border-bottom-color: $techBg !important;
-  &:focus{
-    box-shadow: 0 1px 0 0 $techBg !important;
+
+@media (min-width : 768px) and (max-width: 991px){
+  .main-cal {
+    display: none;
   }
 }
-#formNews input[type=text] {
-  border-bottom-color: $techBg !important;
-  &:focus{
-    box-shadow: 0 1px 0 0 $techBg !important;
+
+@media (min-width: 769px ) {
+  .tab-icon {
+    display: none;
   }
 }
-#formNews.input-field {
-   color: $techBg;
- }
- #formNews.input-field label {
-   color: $techBg !important;
-   border-bottom-color: $techBg !important;
- }
- /* label focus color */
- #formNews.input-field input[type=text]:focus + label {
-   color: $techBg !important;
-   border-bottom-color: $techBg !important;
- }
- /* label underline focus color */
- #formNews.input-field input[type=text]:focus {
-   border-bottom: 1px solid $techBg !important;
-   box-shadow: 0 1px 0 0 $techBg !important;
-   border-bottom-color: $techBg !important;
- }
- /* valid color */
- #formNews.input-field input[type=text].valid, .input-field input[type=password].valid,.input-field input[type=email].valid {
-   border-bottom: 1px solid $techBg !important;
-   box-shadow: 0 1px 0 0 $techBg !important;
-   border-bottom-color: $techBg !important;
- }
- /* invalid color */
- #formNews.input-field input[type=text].invalid, .input-field input[type=password].invalid, .input-field input[type=email].invalid {
-   border-bottom: 1px solid $techBg !important;
-   box-shadow: 0 1px 0 0 $techBg !important;
-   border-bottom-color: $techBg !important;
- }
- /* icon prefix focus color */
- #formNews.input-field .prefix.active {
-   color: $techBg !important;
-   border-bottom-color: $techBg !important;
- }
+
+@media (max-width: 768px ) {
+  .titleAdmin {
+    z-index: -1;
+  }
+  .tab-text {
+    display: none;
+  }
+  .main-cal {
+    display: none;
+  }
+  .upcoming-events {
+    font-size: 35px;
+  }
+}
