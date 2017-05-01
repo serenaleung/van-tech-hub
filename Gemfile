@@ -42,10 +42,10 @@ gem 'materialize-sass'
 gem 'meetup_client_rails'
 gem 'simple_calendar'
 
-gem 'cognitivebing'
-
 gem 'crunchbase-ruby-library'
-
+gem 'httparty'
+gem 'clearbit'
+gem 'geocoder'
 
 
 # Use Capistrano for deployment
