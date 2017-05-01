@@ -15,6 +15,12 @@ class DirectoryController < ApplicationController
         i += 1
       end
     end
+
+    if params[:search]
+      @organizations = Organization.search(params[:search]).order("created_at DESC")
+    else
+      @organizations = Organization.all.order("created_at DESC")
+    end
   end
 
   private
