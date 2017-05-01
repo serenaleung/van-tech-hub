@@ -1,11 +1,17 @@
 class DirectoryController < ApplicationController
   before_action :authenticate_user!
 
-  def index
+def index
+    if params[:search]
+      @organizations = Organization.search(params[:search]).order("created_at DESC")
+    else
+      # @organizations = Organization.all.order("created_at DESC")
+      @organizations = Organization.paginate(:page => params[:page], per_page: 6)
+    end
     if Organization.count == 0
       find_companies
     end
-    @organizations = Organization.paginate(:page => params[:page], per_page: 6)
+    # @organizations = Organization.paginate(:page => params[:page], per_page: 6)
     # @organizations = Organization.all
     total = @organizations.count
     @orgs = []
@@ -15,12 +21,6 @@ class DirectoryController < ApplicationController
         @orgs.push([org.name, org.latitude, org.longitude, i])
         i += 1
       end
-    end
-
-    if params[:search]
-      @organizations = Organization.search(params[:search]).order("created_at DESC")
-    else
-      @organizations = Organization.all.order("created_at DESC")
     end
   end
 
