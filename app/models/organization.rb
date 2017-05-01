@@ -20,7 +20,6 @@ validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
     def full_street_address
       return "#{street}, #{city}, #{province}"
-end
+    end
 
->>>>>>> 093c2f4149c60f90796cefeb42d5158d9735fe2c
 end
