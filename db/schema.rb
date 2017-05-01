@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501052313) do
+ActiveRecord::Schema.define(version: 20170501071631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20170501052313) do
     t.string   "name"
     t.integer  "employee"
     t.string   "manager"
-    t.boolean  "is_publish",  default: false
+    t.boolean  "is_publish",          default: false
     t.string   "city"
     t.string   "street"
     t.string   "province"
@@ -62,10 +62,14 @@ ActiveRecord::Schema.define(version: 20170501052313) do
     t.text     "overview"
     t.string   "website"
     t.string   "twitter"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.string   "logo"
   end
 
