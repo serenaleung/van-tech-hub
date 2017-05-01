@@ -4,12 +4,18 @@
     overflow: scroll;
 }
 
-table, th, td {
-    border: 1px solid black;
-    text-align: center;
-}
+// table, th, td {
+//     border: 1px solid black;
+//     text-align: center;
+// }
 th, td {
     padding: 5px;
     text-align: left;
     text-align: center;
+}
+
+
+label.avLabel {
+    margin-top: 1.5em;
+    color: white;
 }

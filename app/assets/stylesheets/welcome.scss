@@ -28,14 +28,22 @@ p {
 .login-btn {
   position: absolute;
   color: $red;
-  width: 125px;
+  width: 150px;
   right: 0;
   margin: 15px;
   z-index: 20;
 }
 
 #main-btn {
-  width: 125px;
+  width: 150px;
+  text-align: center;
+  padding: 3px;
+}
+
+#main-login-btn {
+  width: 150px;
+  text-align: center;
+  padding: 3px;
 }
 
 .login {
@@ -43,8 +51,26 @@ p {
   font-family: "AvenirNext";
   font-weight: normal;
   position: relative;
-  bottom: 3px;
+  bottom: 8px;
   padding-right: 5px;
+}
+
+.logout {
+  font-size: 20px;
+  font-family: "AvenirNext";
+  font-weight: normal;
+  position: relative;
+  width: 100%;
+  bottom: 8px;
+  padding-right: 5px;
+}
+
+.login a {
+  color: $red;
+}
+
+.logout a {
+  color: $red;
 }
 
 .cloud {
@@ -276,7 +302,7 @@ textarea.materialize-textarea {
 }
 
 .sub-btn {
-  margin: 0;
+  margin-bottom: 0;
   padding: 0;
 }
 
@@ -359,15 +385,13 @@ textarea.materialize-textarea {
   .circles-container {
     height: 50vh;
     top: 0%;
-  }
-  .section4title {
-    margin-left: 5%;
+    padding-left: 15%;
   }
   .circle {
     position: relative;
     float: left;
-    width: 25vw;
-    height: 25vw;
+    width: 20vw;
+    height: 20vw;
   }
   .circle-img {
     position: absolute;
@@ -416,7 +440,7 @@ textarea.materialize-textarea {
   }
   .main-btn-container {
     position: absolute;
-    width: 300px;
+    width: 100%;
     left: 40%;
     bottom: 50%;
   }
@@ -517,7 +541,7 @@ textarea.materialize-textarea {
   }
   .main-btn-container {
     position: absolute;
-    width: 300px;
+    width: 100%;
     left: 35%;
     bottom: 50%;
   }
@@ -673,7 +697,6 @@ textarea.materialize-textarea {
     top: -3%;
     left: 1%;
   }
-
   .section4title {
     font-size: 200%;
     margin-bottom: 10%;

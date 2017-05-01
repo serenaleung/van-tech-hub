@@ -72,6 +72,7 @@
   display: inline;
   right: 65px;
   text-align: right;
+  padding: 2px;
 }
 
 .pagination a li.active {

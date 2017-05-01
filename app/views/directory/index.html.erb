@@ -2,9 +2,9 @@
 <body class="explore">
   <div class="folders">
     <div class="row">
-      <div class="tabby directory-directory"><h5 class="tab-text">Directory</h5><%= image_tag "directory.png", class: "tab-icon" %></div>
-      <div class="tabby events-directory"><h5 class="tab-text">Events</h5><%= image_tag "calendar-tab.png", class: "tab-icon" %></div>
-      <div class="tabby news-directory"><h5 class="tab-text">News</h5><%= image_tag "news-tab.png", class: "tab-icon" %></div>
+      <div class="tabby directory-directory"><a href="/directory"><h5 class="tab-text">Directory</h5><%= image_tag "directory.png", class: "tab-icon" %></a></div>
+      <div class="tabby events-directory"><a href="/events"><h5 class="tab-text">Events</h5><%= image_tag "calendar-tab.png", class: "tab-icon" %></a></div>
+      <div class="tabby news-directory"><a href="/news"><h5 class="tab-text">News</h5><%= image_tag "news-tab.png", class: "tab-icon" %></a></div>
       <h3 class="pageTitle right-align titleAdmin">explore</h3>
     </div>
     <div id="rectangle">
@@ -67,7 +67,9 @@
             <% end %>
         <% end %>
         <div id="infinite-scrolling">
-          <%= will_paginate @organizations, :class => "paginate" %>
+          <% if @organizations %>
+            <%= will_paginate @organizations, :class => "paginate" %>
+          <% end %>
         </div>
       </div>
     </div>

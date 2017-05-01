@@ -1,54 +1,155 @@
-<h1>NEW ORGANIZATION</h1>
+<body class="bodyText">
+  <div class="bg">
 
-<%= @organization.errors.full_messages.join(', ') %>
-<%= form_for(@organization, multipart: true) do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :manager %>
-    <%= f.text_field :manager %>
-  </div>
-  <div>
-    <%= f.label :street  %>
-    <%= f.text_field :street %>
-  </div>
-  <div>
-    <%= f.label :city %>
-    <%= f.text_field :city %>
-  </div>
-  <div>
-    <%= f.label :province %>
-    <%= f.text_field :province %>
-  </div>
-  <div>
-      <%= f.label :postal_code %>
-      <%= f.text_field :postal_code %>
-  </div>
-  <div>
-    <%= f.label :overview %>
-    <%= f.text_field :overview %>
-  </div>
-  <div>
-    <%= f.label :employee %>
-    <%= f.text_field :employee %>
-  </div>
-  <div>
-    <%= f.label :webiste %>
-    <%= f.text_field :website %>
-  </div>
-  <div>
-    <%= f.label :twitter %>
-    <%= f.text_area :twitter %>
-  </div>
-  <div class="field">
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-  </div>
-  <div class="form-group">
-    <%= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{},{ multiple: true, class: 'chosen-select', style: 'width: 400px' } %>
-  </div>
+    <div class="container">
+      <h1 class="title">new organization</h1>
 
-  <%= f.submit %>
-<% end %>
+      <!-- <div class="parallax-container parallax responsive-img">
+      </div> -->
+        <div class="row">
+          <div class="col s12">
+            <%= @organization.errors.full_messages.join(', ') %>
+            <%= form_for(@organization, multipart: true) do |f| %>
+              <div class="row">
+                <div id="formUser" class="input-field col s6">
+                    <%= f.label :name %>
+                    <%= f.text_field :name, class: 'validate', id: 'name', type: 'text' %>
+                </div>
+              </div>
+              <div class="row">
+                <div id="formUser" class="input-field col s6">
+                    <%= f.label :manager %>
+                    <%= f.text_field :manager, class: 'validate', id: 'name', type: 'text' %>
+                </div>
+              </div>
+              <div class="row">
+                <div id="formUser" class="input-field col s12">
+                  <%= f.label :street  %>
+                  <%= f.text_field :street, class: 'validate', id: 'name', type: 'text' %>
+                </div>
+              </div>
+              <div class="row">
+                <div id="formUser" class="input-field col s4">
+                  <%= f.label :city %>
+                  <%= f.text_field :city, class: 'validate', id: 'name', type: 'text' %>
+                </div>
+
+                <div id="formUser" class="input-field col s4">
+                  <%= f.label :province %>
+                  <%= f.password_field :province, class: 'validate', id: 'name', type: 'text' %>
+                </div>
+
+                <div id="formUser" class="input-field col s4">
+                  <%= f.label :postal_code %>
+                  <%= f.password_field :postal_code, class: 'validate', id: 'name', type: 'text' %>
+                </div>
+              </div>
+              <div class="row">
+                <div id="formUser" class="input-field col s12">
+                  <%= f.label :overview  %>
+                  <%= f.text_field :overview, class: 'validate', id: 'name', type: 'text' %>
+                </div>
+              </div>
+              <div class="row">
+                <div id="formUser" class="input-field col s12">
+                  <%= f.label :employee %>
+                  <%= f.text_field :employee, class: 'validate', id: 'name', type: 'text'%>
+                </div>
+              </div>
+              <div class="row">
+                <div id="formUser" class="input-field col s6">
+                  <%= f.label :website %>
+                  <%= f.text_field :website, class: 'validate', id: 'name', type: 'text'%>
+                </div>
+                <div id="formUser" class="input-field col s6">
+                  <%= f.label :twitter %>
+                  <%= f.text_field :twitter, class: 'validate', id: 'name', type: 'text'%>
+                </div>
+              </div>
+              <div class="row">
+                <!-- <div id="formUser" class="input-field file-field field col s6">
+                  <%= f.label :avatar %>
+                  <%= f.file_field :avatar%>
+                </div>
+                <div id="formUser" class="input-field field col s8">
+                  <div class="form-group">
+                    <%= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{},{ multiple: true, class: 'chosen-select', style: 'width: 400px' } %>
+                  </div>
+                </div> -->
+                <div class="input-field field col s6" placeholder="Choose an image for your avatar">
+                  <%= f.label :avatar, class: 'avLabel' %>
+                  <%= f.file_field :avatar %>
+                </div>
+                <div class="form-group">
+                  <%= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{},{ multiple: true, class: 'chosen-select', style: 'width: 400px' } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 btncontainer">
+                  <%= f.submit 'Submit', id: 'btnUser', class: 'waves-effect waves-light btn'%>
+                </div>
+              </div>
+              <% end %>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+
+
+
+
+<!-- <h1>NEW ORGANIZATION</h1> -->
+
+<%#= @organization.errors.full_messages.join(', ') %>
+<%#= form_for(@organization, multipart: true) do |f| %>
+  <!-- <div> -->
+    <%#= f.label :name %>
+    <%#= f.text_field :name %>
+  <!-- </div> -->
+  <!-- <div> -->
+    <%#= f.label :manager %>
+    <%#= f.text_field :manager %>
+  <!-- </div> -->
+  <!-- <div> -->
+    <%#= f.label :street  %>
+    <%#= f.text_field :street %>
+  <!-- </div> -->
+  <!-- <div> -->
+    <%#= f.label :city %>
+    <%#= f.text_field :city %>
+  <!-- </div> -->
+  <!-- <div> -->
+    <%#= f.label :province %>
+    <%#= f.text_field :province %>
+  <!-- </div> -->
+  <!-- <div> -->
+      <%#= f.label :postal_code %>
+      <%#= f.text_field :postal_code %>
+  <!-- </div>
+  <div> -->
+    <%#= f.label :overview %>
+    <%#= f.text_field :overview %>
+  <!-- </div>
+  <div> -->
+    <%#= f.label :employee %>
+    <%#= f.text_field :employee %>
+  <!-- </div>
+  <div> -->
+    <%#= f.label :webiste %>
+    <%#= f.text_field :website %>
+  <!-- </div>
+  <div> -->
+    <%#= f.label :twitter %>
+    <%#= f.text_area :twitter %>
+  <!-- </div>
+  <div class="field"> -->
+    <%#= f.label :avatar %>
+    <%#= f.file_field :avatar %>
+  <!-- </div>
+  <div class="form-group"> -->
+    <%#= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{},{ multiple: true, class: 'chosen-select', style: 'width: 400px' } %>
+  <!-- </div> -->
+
+  <%#= f.submit %>
+<%# end %>

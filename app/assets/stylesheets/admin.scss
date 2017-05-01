@@ -1,47 +1,130 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 $font-stack: "OhmegaSans", sans-serif;
-$main-color: #FEDC3D;
-$tabMargin: -3.28em;
+$bodyText: "AvenirNext", sans-serif;
+
+body {
+  font-family: $bodyText;
+}
+
+$background: #293F55;
+$orgBg: #FF9F9F;
+$orgText: #761F72;
+$eventBg: #0FC2E2;
+$eventText: #FEDC3D;
 $newsBg: #FFE35C;
-.bodyText {
-    font-size: 20px;
+$newsText: #01ABAA;
+$usersBg: #8FB449;
+$usersText: #EAF25D;
+$techBg: #724499;
+$techText: #95DBE0;
+$tabMargin: -3.28em;
+
+.admin {
+  background-color: $background;
+  height: 100%;
 }
 
-
-.title {
-  font-family: $font-stack;
-  margin-left: -0.2em;
-  padding-top: 1em;
-  color: $main-color;
+.tabLink {
+  text-decoration: none;
 }
 
-// .parallax-container.parallax {
-//       // height: 8000px;
-//       width: 100vw;
-//       background-attachment: fixed;
-//       background-position: center;
-//       // background-position: right 10px top;
-//       background-repeat: no-repeat;
-//       // background-image:url('./signup1.jpg');
-//       background-image: url("signup1.jpg");
-//         height: 100%;
-//     }
-.bg{
-      // height: 8000px;
-      width: 100vw;
-      background-attachment: fixed;
-      background-position: center;
-      // background-position: right 10px top;
-      background-repeat: no-repeat;
-      // background-image:url('./signup1.jpg');
-      background-image: url("signup1.jpg");
-        height: 100%;
-    }
+.bob {
+	width: 70%;
+	height: 90%;
+	background: red;
+}
 
-#rectangleUsers {
+.tab:first-child {
+    margin-left: 0.55em !important;
+    color: $orgText;
+    background-color: $orgBg;
+}
+.tab:nth-child(2) {
+    color: $eventText;
+    background-color: $eventBg;
+}
+.tab:nth-child(3) {
+    color: $newsText;
+    background-color: $newsBg;
+}
+.tab:nth-child(4) {
+    color: $usersText;
+    background-color: $usersBg;
+}
+.tab:nth-child(5) {
+    color: $techText;
+    background-color: $techBg;
+}
+.tab:nth-child(6) {
+    color: $techText;
+    background-color: rgba($techBg, 0);
+}
+
+.tab{
+  margin-top: 6vh;
+  padding: 0.8em 0.6em 1.8em 1em !important;
+  width: 15%;
+	background: white;
+  border-radius: 0.6em 0.6em 0 0 ;
+  z-index: 0;
+  position: relative;
+  font-family: $bodyText;
+  font-size: 20px;
+  // font-weight: bold;
+}
+
+.pageTitle {
+  color: white;
+  z-index: 4;
+  position: relative;
+  padding: 0em;
+  margin: -0.1em;
+}
+
+td, th{
+  padding: 1.2em 3em 0.7em !important;
+  font-size: 16.5px;
+}
+
+thead {
+  border-bottom: 1px solid $newsBg;
+}
+
+.pendingTable {
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 5px $newsBg;
+  width: 50%;
+  // border: 7px solid $newsBg;
+  background-color: #FFFDD7;
+  padding: 3em;
+  // margin: 1em;
+  min-width: 90%;
+  position: relative;
+  z-index: 0;
+  margin: 0 auto 2em;
+
+  tbody tr:last-child td {
+    padding-bottom: 1em !important;
+  }
+}
+
+.pendingTable:hover {
+  // border-radius: 1em;
+  box-shadow: inset 0 0 0 5px $newsBg !important;
+  z-index: 3;
+  position: relative;
+}
+
+table, th, td {
+  border: 1px solid none !important;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: rgba($newsBg, 0.2) !important;
+}
+
+#rectangleUser {
   margin-top: $tabMargin;
 	width: 70vw;
 	min-height:70vh;
@@ -49,87 +132,34 @@ $newsBg: #FFE35C;
   z-index: 1em;
   top: -1em;
   position: relative;
-  background-color: $newsBg;
+  background-color: $orgBg;
   padding-bottom: 1em;
 }
 
-.signInText {
-  color: white;
-  font-size: 14px;
+.userBoxes {
+  margin: 0 auto;
 }
 
-a.signInLink {
-  color: yellow;
+.col.s2 {
+    width: 16% !important;
+  }
+
+.h5class {
+  padding: 0.3em 0 .5em 4.1em !important;
+  font-weight: bold;
+  // font-size: 16px;
+}
+.h5class1 {
+  padding: 0.9em 0 .5em 4.1em !important;
+  font-weight: bold;
+  // font-size: 16px;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+.titleAdmin {
+  font-family: $font-stack;
+  padding: 0 0 0em 0.4em;
+  margin: -0.4em 0 0.4em;
+  z-index: 2;
+  position: relative;
+  top: -0.4em;
 }
-
-/* label color */
-  #formUser input[type=email] {
-    border-bottom-color: white !important;
-    &:focus{
-      box-shadow: 0 1px 0 0 white !important;
-    }
-  }
-  #formUser input[type=password] {
-    border-bottom-color: white !important;
-    &:focus{
-      box-shadow: 0 1px 0 0 white !important;
-    }
-  }
-  #formUser input[type=text] {
-    border-bottom-color: white !important;
-    &:focus{
-      box-shadow: 0 1px 0 0 white !important;
-    }
-  }
-  #formUser.input-field {
-     color: white;
-   }
-   #formUser.input-field label {
-     color: white !important;
-     border-bottom-color: white !important;
-   }
-   /* label focus color */
-   #formUser.input-field input[type=text]:focus + label {
-     color: #ffffff !important;
-     border-bottom-color: white !important;
-   }
-   /* label underline focus color */
-   #formUser.input-field input[type=text]:focus {
-     border-bottom: 1px solid #ffffff !important;
-     box-shadow: 0 1px 0 0 #ffffff !important;
-     border-bottom-color: white !important;
-   }
-   /* valid color */
-   #formUser.input-field input[type=text].valid, .input-field input[type=password].valid,.input-field input[type=email].valid {
-     border-bottom: 1px solid #ffffff !important;
-     box-shadow: 0 1px 0 0 #ffffff !important;
-     border-bottom-color: white !important;
-   }
-   /* invalid color */
-   #formUser.input-field input[type=text].invalid, .input-field input[type=password].invalid, .input-field input[type=email].invalid {
-     border-bottom: 1px solid #ffffff !important;
-     box-shadow: 0 1px 0 0 #ffffff !important;
-     border-bottom-color: white !important;
-   }
-   /* icon prefix focus color */
-   #formUser.input-field .prefix.active {
-     color: #ffffff !important;
-     border-bottom-color: white !important;
-   }
-
-   .input-field.col.s12.btncontainer {
-     padding-left: 0;
-   }
-  //  #btnUser.waves-effect.waves-brown .waves-ripple {
-  //    /* The alpha value allows the text and background color
-  //    of the button to still show through. */
-  //    background-color: rgba(121, 85, 72, 0.65);
-  //  }
-  //  .waves-effect.waves-light.btn.waves-input-wrapper {
-  //      background-color: $main-color;
-  //  }

@@ -16,9 +16,9 @@
     </div>
     <div class="login-btn">
       <% if user_signed_in? %>
-      <span class="login"><a href="/sessions/new">LOG OUT</a></span>  <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
+      <span class="logout"><a class="logout-a" href="/sessions/new">LOG OUT</a></span>  <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
       <% else %>
-      <span class="login"><a href="/sessions/new">LOGIN</a></span>  <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
+      <span class="login"><a class="login-a" href="/sessions/new">LOGIN</a></span>  <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
       <% end %>
   </div>
 </section>
@@ -39,8 +39,8 @@
     <form>
       <div class="input-field">
         <input id="search" type="search" required>
-        <label for="search"><i class="material-icons">search</i></label>
-        <i class="material-icons">close</i>
+        <label for="search"><i class="fa fa-search" aria-hidden="true"></i></label>
+        <span class="material-icons">close</span>
       </div>
     </form>
   </div>
