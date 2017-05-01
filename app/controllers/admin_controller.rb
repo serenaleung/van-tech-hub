@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
-
+  before_action :authenticate_user!
+  before_action :user_admin?
     def events
         # render admin events page
         @meetup = MeetupGroup.new
