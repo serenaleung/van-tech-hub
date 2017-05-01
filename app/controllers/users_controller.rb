@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   end
 
   def create
-
+      user_params = params.require(:user).permit([:first_name, :last_name, :email, :password, :organization_id])
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
-        redirect_to organizations_path, notice: 'Thank you for signing up'
+        redirect_to directory_index_path, notice: 'Thank you for signing up'
     else
       redirect_to new_user_path, alert: 'passwords must match!'
     end

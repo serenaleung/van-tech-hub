@@ -14,6 +14,11 @@
                   <%= f.label :first_name %>
                   <%= f.text_field :first_name, class: 'validate', id: 'name', type: 'text' %>
               </div>
+              <div id="formUser" class="input-field col s6">
+                <!-- <input id="name" type="text" class="validate"> -->
+                  <%= f.label :last_name %>
+                  <%= f.text_field :last_name, class: 'validate', id: 'name', type: 'text' %>
+              </div>
             </div>
             <div class="row">
               <div id="formUser" class="input-field col s12">
@@ -39,12 +44,12 @@
               </div>
             </div>
             <div class="row">
-              <div class="input-field col s12">
+              <div class="input-field col s12 btncontainer">
                 <%= f.submit 'Sign Up', id: 'btnUser', class: 'waves-effect waves-light btn'%>
               </div>
             </div>
             <% end %>
-            <p>Already have an account? <%= link_to "Sign In", new_session_path %></p>
+            <p class="signInText">Already have an account? <%= link_to "Sign In", new_session_path, class: 'signInLink' %></p>
         </div>
       </div>
   </div>

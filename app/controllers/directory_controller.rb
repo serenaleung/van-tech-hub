@@ -1,4 +1,6 @@
 class DirectoryController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     if Organization.count == 0
       find_companies
