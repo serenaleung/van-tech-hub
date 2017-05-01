@@ -2,9 +2,9 @@
 <body class="explore">
   <div class="folders">
     <div class="row">
-      <div class="tabby directory"><h5 class="tab-text">Directory</h5><%= image_tag "directory.png", class: "tab-icon" %></div>
-      <div class="tabby events"><h5 class="tab-text">Events</h5><%= image_tag "calendar.png", class: "tab-icon" %></div>
-      <div class="tabby news"><h5 class="tab-text">News</h5><%= image_tag "news.png", class: "tab-icon" %></div>
+      <div class="tabby directory-directory"><h5 class="tab-text">Directory</h5><%= image_tag "directory.png", class: "tab-icon" %></div>
+      <div class="tabby events-directory"><h5 class="tab-text">Events</h5><%= image_tag "calendar-tab.png", class: "tab-icon" %></div>
+      <div class="tabby news-directory"><h5 class="tab-text">News</h5><%= image_tag "news-tab.png", class: "tab-icon" %></div>
       <h3 class="pageTitle right-align titleAdmin">explore</h3>
     </div>
     <div id="rectangle">
@@ -41,9 +41,9 @@
                   <div class="col s12 m12 l4">
                     <div class="card">
                       <div class="card-top">
-                        <a class="round-button btn-floating btn-large waves-effect waves-light red"><%= image_tag "news.png", class: "news-round" %></a>
+                        <a href="<%= organization_path(organization) %>" style="text-decoration: none;" class="round-button btn-floating btn-large waves-effect waves-light red"><%= image_tag "news.png", class: "news-round" %></a>
                         <div class="card-title-block">
-                          <div class="card-title-text"><%= organization.name %></div>
+                          <a href="<%= organization_path(organization) %>" style="text-decoration: none;" class="card-title-text"><%= organization.name %></a>
                         </div>
                       </div>
                       <div class="card-content">

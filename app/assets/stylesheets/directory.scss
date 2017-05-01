@@ -51,20 +51,20 @@ $techText: #95DBE0;
   box-shadow: 3px -10px 20px rgba(0,0,0,0), 3px -6px 6px rgba(0,0,0,0.23);
 }
 
-.tabby.directory {
+.tabby.directory-directory {
     color: $red;
     background-color: $peach;
     z-index: 4;
 }
-.tabby.events {
+.tabby.events-directory {
     color: $yellow;
-    background-color: $eventBg;
+    background-color: $red;
     left: 25%;
     z-index: 2;
 }
-.tabby.news {
+.tabby.news-directory {
     color: $blue;
-    background-color: $newsBg;
+    background-color: $yellow;
     left: 45%;
     z-index: 1;
 }

@@ -1,3 +1,150 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// COLORS
+$yellow: #FEDC3D;
+$peach: #FEA680;
+$blue: #01ABAA;
+$red: #F53240;
+
+$font-stack: "OhmegaSans", sans-serif;
+$bodyText: "AvenirNext", sans-serif;
+
+body {
+  font-family: $bodyText;
+}
+
+$background: #293F55;
+$orgText: #761F72;
+$eventBg: #0FC2E2;
+$eventText: #FEDC3D;
+$newsBg: #FFE35C;
+$newsText: #01ABAA;
+$usersBg: #8FB449;
+$usersText: #EAF25D;
+$techBg: #724499;
+$techText: #95DBE0;
+
+.explore {
+  background-color: $blue;
+}
+
+.folders {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  padding: 5%;
+}
+
+#rectangle.events-box {
+  border-radius: 15px 15px 0px 0px;
+  width: 100%;
+  height: 100%;
+  top: 25px;
+  background-color: $red;
+  z-index: 3;
+  box-shadow: 0 -10px 20px rgba(0,0,0,0), 0 -6px 6px rgba(0,0,0,0.23);
+}
+
+.tabby {
+  border-radius: 15px 15px 0px 0px;
+  position: absolute;
+  width: 20%;
+  min-height: 60px;
+  box-shadow: 3px -10px 20px rgba(0,0,0,0), 3px -6px 6px rgba(0,0,0,0.23);
+}
+
+.tabby.directory-events {
+    color: $red;
+    background-color: $peach;
+    height: 80px;
+    z-index: 2;
+}
+.tabby.events-events {
+    color: $yellow;
+    background-color: $red;
+    left: 25%;
+    z-index: 4;
+}
+.tabby.news-events {
+    color: $blue;
+    background-color: $yellow;
+    left: 45%;
+    z-index: 1;
+}
+
+.tab-text {
+  text-align: center;
+  padding: 7px;
+  font-weight: bolder;
+}
+
+.pageTitle {
+  float: right;
+  margin: 0;
+  width: 100%;
+  color: white;
+  z-index: 14;
+}
+
+.titleAdmin {
+  font-family: $font-stack;
+  z-index: 2;
+  position: relative;
+}
+
+.tab-icon-events {
+  position: relative;
+  height: 40px;
+  left: 10%;
+  margin: 8px;
+  z-index: 5;
+}
+
+// EVENTS CONTENTS
+.events-box {
+  padding: 5%;
+  padding-top: 2%;
+}
+
+.main-cal {
+  position: relative;
+  text-align: center;
+}
+
+#event-list {
+  margin-bottom: 15%;
+}
+
+.upcoming-events {
+  color: $yellow;
+}
+
+
+// MEDIA QUERIES
+@media (min-width : 992px) and (max-width: 1199px) {
+}
+
+@media (min-width : 768px) and (max-width: 991px){
+  .main-cal {
+    display: none;
+  }
+}
+
+@media (min-width: 769px ) {
+  .tab-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 768px ) {
+  .titleAdmin {
+    z-index: -1;
+  }
+  .tab-text {
+    display: none;
+  }
+  .main-cal {
+    display: none;
+  }
+  .upcoming-events {
+    font-size: 35px;
+  }
+}
