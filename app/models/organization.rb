@@ -11,7 +11,6 @@ validates :city, { presence: true, }
 validates :street, { presence: true, }
 validates :province, { presence: true, }
 validates :website, { presence: true, }
-validates :adapted_technologies, { presence: true, }
 
 has_attached_file :avatar
 
