@@ -1,3 +1,5 @@
+<h1>NEW ORGANIZATION</h1>
+
 <%= @organization.errors.full_messages.join(', ') %>
 <%= form_for @organization do |f| %>
   <div>
@@ -24,7 +26,6 @@
   <div class="form-group">
     <%= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{},{ multiple: true, class: 'chosen-select', style: 'width: 400px' } %>
   </div>
-
 
   <%= f.submit %>
 <% end %>

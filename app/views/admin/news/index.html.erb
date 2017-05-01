@@ -1,0 +1,21 @@
+<h1>ADMIN > NEWS</h1>
+
+<div id="add-search-terms">
+    <%= form_for 'admin_news_path' do |f| %>
+      <div>
+        <%= f.label :search_term %>
+        <%= f.text_field :search_term %>
+      </div>
+      <%= f.submit 'Add Search Term' %>
+    <% end %>
+</div>
+
+<div id="list-search-terms">
+    <% if @search_terms %>
+        <% @search_terms.each do |search| %>
+          <p><%= search.search_term %></p>
+          <p><%= link_to 'Destroy', admin_news_path(search.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <hr>
+        <% end %>
+    <% end %>
+</div>

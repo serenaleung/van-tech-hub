@@ -1,0 +1,14 @@
+<h1>News Page</h1>
+
+<div id="event-list">
+  <% if @articles %>
+      <% @articles.each do |article| %>
+          <img src="<%= article.image %>"/>
+          <a href="<%= article.link %>"><%= article.title %></a>
+          <p><%= article.snippet %></p>
+          <a href="http://<%= article.displayLink %>"><%= article.displayLink %></a>
+          <p><%= article.date %></p>
+          <hr>
+      <% end %>
+  <% end %>
+</div>

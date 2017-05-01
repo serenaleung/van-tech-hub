@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430023156) do
+ActiveRecord::Schema.define(version: 20170430215355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,32 @@ ActiveRecord::Schema.define(version: 20170430023156) do
     t.datetime "updated_at",      null: false
     t.index ["organization_id"], name: "index_adapts_on_organization_id", using: :btree
     t.index ["technology_id"], name: "index_adapts_on_technology_id", using: :btree
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.string   "link"
+    t.text     "snippet"
+    t.string   "displayLink"
+    t.string   "image"
+    t.string   "date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.string   "urlname"
+    t.datetime "start_time"
+    t.text     "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meetup_groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -38,10 +64,19 @@ ActiveRecord::Schema.define(version: 20170430023156) do
     t.string   "twitter"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
+  create_table "search_terms", force: :cascade do |t|
+    t.string   "search_term"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "technologies", force: :cascade do |t|
     t.string   "language"
+    t.string   "framework"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
