@@ -19,3 +19,4 @@
 /config/initializers/google_custom_search
 # Ignore Byebug command history file.
 .byebug_history
+.env

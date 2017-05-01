@@ -67,7 +67,7 @@
         end
 
         def organization_params
-          params.require(:organization).permit([:name, :manager, :website, :twitter, :overview])
+          params.require(:organization).permit([:name, :manager, :website, :twitter, :overview, :avatar])
         end
 
         def super_org_params
