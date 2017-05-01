@@ -32,9 +32,10 @@ class Ability
     if user.is_admin?
       can :manage, :all
     end
+    can [:create, :destroy], Organization do |organization|
+      organization.id == user.organization_id
+    end
 
-    
 
-
-  end
+end
 end
