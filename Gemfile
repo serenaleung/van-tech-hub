@@ -53,6 +53,7 @@ gem 'geocoder'
 
 gem 'chosen-rails'
 
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'paperclip'
 gem 'aws-sdk'
 
