@@ -1,21 +1,82 @@
-<h1>ADMIN > NEWS</h1>
+<!--  -->
+<!-- <div id="add-search-terms"> -->
+    <%#= form_for 'admin_news_path' do |f| %>
+      <!-- <div> -->
+        <%#= f.label :search_term %>
+        <%#= f.text_field :search_term %>
+      <!-- </div> -->
+      <%#= f.submit 'Add Search Term' %>
+    <%# end %>
+<!-- </div> -->
 
-<div id="add-search-terms">
-    <%= form_for 'admin_news_path' do |f| %>
-      <div>
-        <%= f.label :search_term %>
-        <%= f.text_field :search_term %>
+<!-- <div id="list-search-terms"> -->
+    <%# if @search_terms %>
+        <%# @search_terms.each do |search| %>
+          <!--<p>--><%#= search.search_term %>  <!--</p>-->
+        <!--  <p>--><%#= link_to 'Destroy', admin_news_path(search.id), method: :delete, data: { confirm: 'Are you sure?' } %><!--</p>-->
+          <!-- <hr> -->
+        <%# end %>
+    <%# end %>
+<!-- </div> -->
+
+
+
+<body class="admin">
+  <div class="container">
+    <div class="row">
+      <div id="folders">
+        <div class="col s2 tab"><%= link_to "Users", admin_index_path, :class => "usersLink"%></div>
+        <div class="col s2 tab"><%= link_to "Events", admin_events_path, :class => "eventsLink" %></div>
+        <div class="col s2 tab"><%= link_to "News", admin_news_index_path, :class => "newsLink" %></div>
+        <div class="col s2 tab"><%= link_to "Organizations", organizations_path, :class => "orgLink" %></div>
+        <div class="col s2 tab"><%= link_to "Technologies", technologies_path, :class => "techLink" %></div>
+        <div class="col s2 tab"><h3 class="pageTitle right-align titleAdmin">Admin</h3></div>
       </div>
-      <%= f.submit 'Add Search Term' %>
-    <% end %>
-</div>
+    </div>
+      <div id="rectangleNews">
 
-<div id="list-search-terms">
-    <% if @search_terms %>
-        <% @search_terms.each do |search| %>
-          <p><%= search.search_term %></p>
-          <p><%= link_to 'Destroy', admin_news_path(search.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-          <hr>
-        <% end %>
-    <% end %>
-</div>
+        <span class="col s2 meetupId">News</span>
+        <div class="row">
+          <div class="userBoxes">
+            <div id="add-event">
+              <%= form_for 'admin_news_path' do |f| %>
+                <div class="row">
+                    <div id="formNews" class="input-field col s1"></div>
+                    <div id="formNews" class="input-field col s8">
+                      <%= f.label :search_term %>
+                      <%= f.text_field :search_term, id: 'name', type: 'text' %>
+                    </div>
+                    <div class="input-field col s2 btncontainer">
+                      <%= f.submit 'Add Search Term', id: 'btnEvent', class: 'waves-effect waves-light btn'%>
+                    </div>
+                </div>
+              <% end %>
+            </div>
+
+            <table class="highlight newsTable">
+              <div id="list-events">
+                <thead class="newsLine">
+                  <tr>
+                    <th>Search Term</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+
+                  <tbody>
+                    <tr>
+                      <% if @search_terms %>
+                      <% @search_terms.each do |search| %>
+                      <td><%= search.search_term %></td>
+                      <td><%= link_to 'Destroy', admin_news_path(search.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  </tbody>
+                <% end %>
+                <% end %>
+              </div>
+            </table>
+
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
