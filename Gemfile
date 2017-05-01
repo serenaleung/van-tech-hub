@@ -52,6 +52,9 @@ gem 'geocoder'
 
 gem 'chosen-rails'
 
+gem 'paperclip'
+gem 'aws-sdk'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
