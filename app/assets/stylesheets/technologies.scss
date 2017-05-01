@@ -1,3 +1,63 @@
 // Place all the styles related to the technologies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$background: #293F55;
+$orgBg: #FF9F9F;
+$orgText: #EAF25D;
+$eventBg: #0FC2E2;
+$eventText: #EFFFDD;
+$newsBg: #FFE35C;
+$newsText: #01ABAA;
+$usersBg: #8FB449;
+$usersText: #761F72;
+$techBg: #724499;
+$techText: #95DBE0;
+$tabMargin: -3.28em;
+
+#rectangleTech {
+  margin-top: $tabMargin;
+	width: 70vw;
+	min-height:70vh;
+  border-radius: 1em;
+  z-index: 1em;
+  top: -1em;
+  position: relative;
+  background-color: $techBg;
+  padding-bottom: 1em;
+}
+
+.newsLine {
+  border-bottom: 1px solid $orgBg;
+}
+
+.newsTable {
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 5px $orgBg;
+  width: 50%;
+  // border: 7px solid $newsBg;
+  background-color: #EFFFDD;
+  padding: 3em;
+  // margin: 1em;
+  min-width: 90%;
+  position: relative;
+  z-index: 0;
+  margin: 0 auto;
+
+  tbody tr:last-child td {
+    padding-bottom: 1em !important;
+  }
+}
+.newsTable:hover {
+  // border-radius: 1em;
+  box-shadow: inset 0 0 0 5px $orgBg !important;
+  z-index: 3;
+  position: relative;
+}
+
+.techId {
+  padding: 0.9em 0 .5em 6em !important;
+  font-weight: bold;
+  font-color: white;
+}
