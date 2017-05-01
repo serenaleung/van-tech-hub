@@ -15,6 +15,12 @@ class DirectoryController < ApplicationController
         i += 1
       end
     end
+
+    if params[:search]
+      @organizations = Organization.search(params[:search]).order("created_at DESC")
+    else
+      @organizations = Organization.all.order("created_at DESC")
+    end
   end
 
   private
@@ -47,10 +53,11 @@ class DirectoryController < ApplicationController
           org.employee = info.metrics.employees
           org.latitude = info.geo.lat
           org.longitude = info.geo.lng
+          org.logo = info.logo
 
           org.save
+          # counter += 1
         end
-        # counter += 1
         # break if counter == 10
       end
     end
