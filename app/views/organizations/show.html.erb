@@ -14,7 +14,7 @@
     <div id="rectangleOrg">
       <div class="rectangleOrgInner">
       <!-- <h1>Organization List</h1> -->
-        <span class="meetupId">Organization</span>
+        <span class="orgId">Organization</span>
           <div class="row">
             <div class="col s1"></div>
             <div class="col s11"><%= image_tag @organization.avatar.url %></div>
@@ -33,11 +33,11 @@
           </div>
           <div class="row">
             <div class="col s1"></div>
-            <div class="col s11">Address: <%= @organization.street %>,<%= @organization.city %>,<%= @organization.province %>,<%= @organization.postal_code %>></h4></div>
+            <div class="col s11">Address: <%= @organization.street %>,<%= @organization.city %>,<%= @organization.province %>,<%#= @organization.postal_code %>></h4></div>
           </div>
           <div class="row">
             <div class="col s1"></div>
-            <div class="col s11">Overview: <%= @organization.overview %></div>
+            <div class="col s11">Overview: <%#= @organization.overview %></div>
           </div>
           <div class="row">
             <div class="col s1"></div>

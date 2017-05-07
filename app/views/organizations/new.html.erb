@@ -1,5 +1,5 @@
 <body class="bodyText">
-  <div class="bg">
+  <div class="parallax-containerOrg parallax responsive-img"></div>
 
     <div class="container">
       <h1 class="title">new organization</h1>
@@ -19,69 +19,60 @@
               <div class="row">
                 <div id="formUser" class="input-field col s6">
                     <%= f.label :manager %>
-                    <%= f.text_field :manager, class: 'validate', id: 'name', type: 'text' %>
+                    <%= f.text_field :manager, class: 'validate', id: 'manager', type: 'text' %>
                 </div>
               </div>
               <div class="row">
                 <div id="formUser" class="input-field col s12">
-                  <%= f.label :street  %>
-                  <%= f.text_field :street, class: 'validate', id: 'name', type: 'text' %>
+                  <%# f.label :street  %>
+                  <%# f.text_field :street, class: 'validate', id: 'name', type: 'text' %>
                 </div>
               </div>
               <div class="row">
                 <div id="formUser" class="input-field col s4">
                   <%= f.label :city %>
-                  <%= f.text_field :city, class: 'validate', id: 'name', type: 'text' %>
+                  <%= f.text_field :city, class: 'validate', id: 'city', type: 'text' %>
                 </div>
 
                 <div id="formUser" class="input-field col s4">
                   <%= f.label :province %>
-                  <%= f.password_field :province, class: 'validate', id: 'name', type: 'text' %>
+                  <%= f.password_field :province, class: 'validate', id: 'province', type: 'text' %>
                 </div>
 
                 <div id="formUser" class="input-field col s4">
                   <%= f.label :postal_code %>
-                  <%= f.password_field :postal_code, class: 'validate', id: 'name', type: 'text' %>
+                  <%= f.password_field :postal_code, class: 'validate', id: 'postal_code', type: 'text' %>
                 </div>
               </div>
               <div class="row">
                 <div id="formUser" class="input-field col s12">
-                  <%= f.label :overview  %>
-                  <%= f.text_field :overview, class: 'validate', id: 'name', type: 'text' %>
+                  <%# f.label :overview  %>
+                  <%# f.text_field :overview, class: 'validate', id: 'name', type: 'text' %>
                 </div>
               </div>
               <div class="row">
                 <div id="formUser" class="input-field col s12">
                   <%= f.label :employee %>
-                  <%= f.text_field :employee, class: 'validate', id: 'name', type: 'text'%>
+                  <%= f.text_field :employee, class: 'validate', id: 'employee', type: 'text'%>
                 </div>
               </div>
               <div class="row">
                 <div id="formUser" class="input-field col s6">
                   <%= f.label :website %>
-                  <%= f.text_field :website, class: 'validate', id: 'name', type: 'text'%>
+                  <%= f.text_field :website, class: 'validate', id: 'website', type: 'text'%>
                 </div>
                 <div id="formUser" class="input-field col s6">
-                  <%= f.label :twitter %>
-                  <%= f.text_field :twitter, class: 'validate', id: 'name', type: 'text'%>
+                  <%# f.label :twitter %>
+                  <%# f.text_field :twitter, class: 'validate', id: 'name', type: 'text'%>
                 </div>
               </div>
               <div class="row">
-                <!-- <div id="formUser" class="input-field file-field field col s6">
-                  <%= f.label :avatar %>
-                  <%= f.file_field :avatar%>
-                </div>
-                <div id="formUser" class="input-field field col s8">
-                  <div class="form-group">
-                    <%= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{},{ multiple: true, class: 'chosen-select', style: 'width: 400px' } %>
-                  </div>
-                </div> -->
                 <div class="input-field field col s6" placeholder="Choose an image for your avatar">
                   <%= f.label :avatar, class: 'avLabel' %>
                   <%= f.file_field :avatar %>
                 </div>
                 <div class="form-group">
-                  <%= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{},{ multiple: true, class: 'chosen-select', style: 'width: 400px' } %>
+                  <%= f.collection_select :adapted_technologies, Technology.order(:language), :id, :language,{},{ multiple: true, class: 'chosen-select', style: 'width: 400px;' } %>
                 </div>
               </div>
               <div class="row">

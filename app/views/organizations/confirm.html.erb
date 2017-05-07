@@ -11,41 +11,33 @@
       </div>
     </div>
     <div id="rectangleOrg">
-<div class="rectangleOrgInner">
-    <!-- <span class="confirmationHeader">Confirmation</span> -->
-    <div class="row">
-      <div class="col s1"></div>
-    <div class="col s11"><h1 class="h1spacing">Hello <%= @user.first_name %></h1></div>
+      <div class="rectangleOrgInner">
+          <!-- <span class="confirmationHeader">Confirmation</span> -->
+          <div class="row">
+            <div class="col s1"></div>
+          <div class="col s11"><h1 class="h1spacing">Hello <%= @user.first_name %></h1></div>
 
-    <div class="row">
-      <div class="col s1"></div>
-    <div class="col s11 "><p><% if @user.organization_id  %>
-    It shows that you have claimed <%=Organization.find(@user.organization_id).name  %>in our record. Are you sure you are going to claim <%= @organization.name %> instead?</p>
-    <% else %>
+          <div class="row">
+            <div class="col s1"></div>
+            <div class="col s11 "><p><% if @user.organization_id  %>
+              It shows that you have claimed <%=Organization.find(@user.organization_id).name  %>in our record. Are you sure you are going to claim <%= @organization.name %> instead?</p>
+              <% else %>
 
-    <p class="confirmSpacing">You are about to submit a request to claim the company <%= @organization.name %></p>
-    <% end %>
+              <p class="confirmSpacing">You are about to submit a request to claim the company <%= @organization.name %>.</p>
+              <% end %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s1"></div>
+            <div class="col s11 actionOrg"><%= link_to "Yes Submit Request", organizations_confirm_path(@organization, @user), method: :post%>
+              <br>
+          <%= link_to "No (Go back to directory)", organizations_path %></div>
+        </div>
+      </div>
     </div>
-
-    <div class="row">
-      <div class="col s1"></div>
-      <div class="col s11"><%= link_to "Yes Submit Request", organizations_confirm_path(@organization, @user), method: :post%>
-        <br>
-    <%= link_to "No (Go back to directory)", organizations_path %></div>
   </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+
+
 </body>

@@ -14,70 +14,69 @@
     </div>
     <div id="rectangleEditUser">
       <!-- <h1>Organization List</h1> -->
-      <span class="col s2 meetupId">Edit Users</span>
+      <div class="row">
+        <span class="col s2 h5class1">Edit Users</span>
+      </div>
+      <div class="row">
+        <div class="adminpanel">
 
-      <div class="adminpanel">
-        <div class="container">
-        <div class="rectangleEditInner">
+            <div class="rectangleEditInner">
+                <div class="col s12">
+                  <%= form_for @user do |f| %>
+                  <div class="row">
+                    <div id="formUserEdit" class="input-field col s6">
+                      <!-- <input id="name" type="text" class="validate"> -->
+                      <%= f.label :first_name %>
+                      <%= f.text_field :first_name, class: 'validate', id: 'name', type: 'text', value: @user.first_name  %>
+                    </div>
+                    <div id="formUserEdit" class="input-field col s6">
+                      <!-- <input id="name" type="text" class="validate"> -->
+                      <%= f.label :last_name %>
+                      <%= f.text_field :last_name, class: 'validate', id: 'name', type: 'text', value: @user.last_name %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="formUserEdit" class="input-field col s12">
+                      <!-- <input id="email" type="email" class="validate"> -->
+                      <%= f.label :organization_id  %>
+                      <%= f.text_field :organization_id, class: 'validate', id: 'text', type: 'text', value: @user.organization_id  %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="formUserEdit" class="input-field col s12">
+                      <!-- <input id="password" type="password" class="validate"> -->
+                      <!-- <label for="password">Password</label> -->
+                      <%= f.label :is_admin %>
+                      <%= f.text_field :is_admin, class: 'validate', id: 'text', value: @user.is_admin  %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="formUserEdit" class="input-field col s12">
+                      <!-- <input id="password" type="password" class="validate"> -->
+                      <!-- <label for="password">Password</label> -->
+                      <%= f.label :email %>
+                      <%= f.text_field :email, value: @user.email, class: 'validate', id: 'email', type: 'email' %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="formUserEdit" class="input-field col s12">
+                      <!-- <input id="password" type="password" class="validate"> -->
+                      <!-- <label for="password">Password</label> -->
+                      <%= f.label :org_approved  %>
+                      <%= f.text_field :org_approved, value: @user.org_approved, class: 'validate' %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12 btncontainer">
+                      <%= f.submit 'Submit', id: 'btnUser', class: 'waves-effect waves-light btn'%>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
 
-
-        <div class="row">
-          <div class="col s12">
-            <%= form_for @user do |f| %>
-              <div class="row">
-                <div id="formUser" class="input-field col s6">
-                  <!-- <input id="name" type="text" class="validate"> -->
-                    <%= f.label :first_name %>
-                    <%= f.text_field :first_name, class: 'validate', id: 'name', type: 'text', value: @user.first_name  %>
-                </div>
-                <div id="formUser" class="input-field col s6">
-                  <!-- <input id="name" type="text" class="validate"> -->
-                    <%= f.label :last_name %>
-                    <%= f.text_field :last_name, class: 'validate', id: 'name', type: 'text', value: @user.last_name %>
-                </div>
-              </div>
-              <div class="row">
-                <div id="formUser" class="input-field col s12">
-                  <!-- <input id="email" type="email" class="validate"> -->
-                  <%= f.label :organization_id  %>
-                  <%= f.text_field :organization_id, class: 'validate', id: 'text', type: 'text', value: @user.organization_id  %>
-                </div>
-              </div>
-              <div class="row">
-                <div id="formUser" class="input-field col s12">
-                  <!-- <input id="password" type="password" class="validate"> -->
-                  <!-- <label for="password">Password</label> -->
-                  <%= f.label :is_admin %>
-                  <%= f.text_field :is_admin, class: 'validate', id: 'text', value: @user.is_admin  %>
-                </div>
-              </div>
-              <div class="row">
-                <div id="formUser" class="input-field col s12">
-                  <!-- <input id="password" type="password" class="validate"> -->
-                  <!-- <label for="password">Password</label> -->
-                  <%= f.label :email %>
-                  <%= f.text_field :email, value: @user.email, class: 'validate', id: 'email', type: 'email' %>
-                </div>
-              </div>
-              <div class="row">
-                <div id="formUser" class="input-field col s12">
-                  <!-- <input id="password" type="password" class="validate"> -->
-                  <!-- <label for="password">Password</label> -->
-                  <%= f.label :Org_approved  %>
-                  <%= f.text_field :org_approved, value: @user.org_approved, class: 'validate' %>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12 btncontainer">
-                  <%= f.submit 'Submit', id: 'btnUser', class: 'waves-effect waves-light btn'%>
-                </div>
-              </div>
-              <% end %>
           </div>
         </div>
       </div>
-          </div>
-  </div>
-        </div>
-      </div>
-    </body>
+    </div>
+  </body>

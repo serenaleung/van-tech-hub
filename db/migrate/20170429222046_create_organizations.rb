@@ -13,6 +13,8 @@ class CreateOrganizations < ActiveRecord::Migration[5.0]
       t.string :website
       t.string :twitter
 
+      
+
       t.timestamps
     end
   end
