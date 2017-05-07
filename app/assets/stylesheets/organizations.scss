@@ -8,6 +8,25 @@
 //     border: 1px solid black;
 //     text-align: center;
 // }
+
+.parallax-containerOrg.parallax {
+      // height: 8000px;
+      width: 100vw;
+      background-attachment: fixed;
+      background-position: center;
+      // background-position: right 10px top;
+      background-repeat: no-repeat;
+      // background-image:url('./signup1.jpg');
+      background-image: url("bg2.jpg");
+        height: 130%;
+    }
+
+.orgId {
+  padding: 0.9em 0 .5em 5.5em !important;
+  font-weight: bold;
+  font-color: black;
+}
+
 $background: #293F55;
 $orgBg: #FF9F9F;
 $orgText: #EAF25D;
@@ -28,8 +47,8 @@ th, td {
 }
 
 label.avLabel {
-    margin-top: 1.5em;
-    color: white;
+    margin-top: 0em;
+    color: white !important;
 }
 
 
@@ -37,6 +56,7 @@ input#organization_avatar {
     color: white;
     font-size: 16px;
 }
+
 
 #rectangleOrg {
   margin-top: $tabMargin;
@@ -105,6 +125,9 @@ input#organization_avatar {
   font-color: white;
 }
 
+.actionOrg {
+  margin-left: -0.3em !important;
+}
 
 .h1spacing {
   padding-left: 0em;
@@ -112,5 +135,5 @@ input#organization_avatar {
 }
 
 .confirmSpacing {
-  margin-left: -0.6em;
+  margin-left: -0.4em;
 }
