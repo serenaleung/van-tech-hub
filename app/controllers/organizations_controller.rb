@@ -8,7 +8,7 @@
     def index
           # redirect_to root_path, alert: "access defined" unless can? :index, @organization
           if :user_admin?
-            @organizations = Organization.all.order('created_at DESC')
+            @organizations = Organization.all.order('created_at ASC')
           else
             redirect_to directory_index_path
             return
@@ -65,7 +65,7 @@
 
             @organization.destroy
 
-             redirect_to organizations_path, notice: 'Organization Deleted💀'
+             redirect_to organizations_path
       end
 
 
