@@ -66,6 +66,7 @@ end
 #                       twitter: Faker::Internet.url('twitter.com'),
 
 
+
 #   )
 #   puts "Org created!"
 # end
@@ -76,8 +77,10 @@ end
               last_name: Faker::Name.last_name,
               email: Faker::Internet.email,
               password: '1234567',
+
               # organization_id: organization.id,
               is_admin: false,
+
 
   )
   puts "User created!"
@@ -87,6 +90,9 @@ organization_count = Organization.count
 user_count = User.count
 technology_count = Technology.count
 
+technology_count = Technology.count
+organization_count = Organization.count
+
 30.times do
   Adapt.create(
       organization_id: rand(1..organization_count),
@@ -94,6 +100,7 @@ technology_count = Technology.count
   )
   puts "Adapt created!"
 end
+
 
 
 # puts Cowsay.say "Created #{organization_count}", :Dragon
